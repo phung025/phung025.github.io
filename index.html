@@ -1,1 +1,174 @@
-Hello World
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nam Phung</title>
+  <style>
+
+  body {
+    font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+  }
+
+  h2, h5, h6 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  p, li {
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  a:link, a:visited {
+    color: blue;
+  }
+
+  a:hover {
+    color: #f1f1f1;
+  }
+
+  ul {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+.sidenav {
+    height: 100%;
+    width: 150px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    padding-top: 100px;
+}
+
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: blue;
+    display: block;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.main {
+    margin-left: 160px; /* Same as the width of the sidenav */
+    font-size: 28px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+.about-box {
+    background-color: #FFC2C4;
+    padding: 15px;
+    border-radius: 25px;
+}
+
+.list-box {
+  border: 2px solid black;
+  padding: 15px;
+  border-radius: 25px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="sidenav">
+  <a href="#about">About</a>
+  <a href="#research">Research</a>
+  <a href="#other-works">Other Works</a>
+  <a href="#teaching">Teaching</a>
+</div>
+
+<div class="main">
+  <a name="about"></a>
+  <div class="about-box">
+    <img src="img/avatar.jpg" width="15%" align="right" alt="My Avatar">
+    <h2>Nam Phung</h2>
+    <p>Computer Science B.S., Statistics & Acturial Science B.S., Mathematics Minor @ <a href="d.umn.edu">University of Minnesota, Duluth</a></p>
+    <p>Email: <a href="mailto:phung025@d.umn.edu">phung025@d.umn.edu</a></p>
+    <p>Resumé: [<a href="https://drive.google.com/file/d/1s-j1i58wHNmR1tfxhhQSUeD8d8lFUyGx/view">pdf</a>]</p>
+    <p>Languages: Python, Java, Objective-C, C++, Racket </p>
+    <p>Research interest: machine learning, artificial intelligence, advance data structures & algorithms, programming languages, and software engineering </p>
+    <p>Papers: <a href="http://dblp.uni-trier.de/pers/hd/p/Phung:Nam">dblp</a>, <a href="https://scholar.google.com.vn/citations?user=MJB1RwIAAAAJ&hl=en">Google Scholar</a> </p>
+  </div>
+
+  <a name="research"></a>
+  <h5>Research Projects</h5>
+  <p>My research focuses on machine learning, artificial intelligence, advance data structures & algorithms, programming languages, and software engineering. I am currently working on the weight shifting research project with Dr. Arshia Khan.</p>
+  <div class="list-box">
+    <h6> Weight Shifting </h6>
+    <p>I worked with Dr. Arshia Khan from University of Minnesota Duluth to build a system consists of an iOS mobile application, a Raspberry PI, and a pressure mapping mattress that targets wheelchair-bound patients to help prevent pressure ulcers and study the correlation between the development of decubitus ulcers and sitting duration.</p>
+
+    <h6>Papers</h6>
+
+    <p> Khan, A., Reuter, M., Phung, N. ”Wireless Solution to Prevent Decubitus Ulcers: Preventive Weight Shifting Guide, Monitor, and Tracker App for Wheel Chair Users with Spinal Cord Injuries (Phase II)”, Proceedings of the IEEE Healthcom, Munich, Germany, Sept 2016 <br>
+    [<a href="http://ieeexplore.ieee.org/abstract/document/7749500/">Link</a>] </p>
+
+    <p> Khan, A. Phung, N. ”Undergraduate Research in Assistive Technology: Design and development of a Preventive Weight Shifting App to Reduce the Risk of Pressure Ulcers in Wheelchair Bound Patients with Spinal Cord Injuries”, ASME Journal of Medical Devices, 10(20):020927, Minneapolis, MN, May 2016; DOI 10.1115/1.4033277. <br>
+    [<a href="https://medicaldevices.asmedigitalcollection.asme.org/article.aspx?articleID=2522790">Link</a>] </p>
+
+    <p> Phung, N. ”Assistive Technology: Mobile App Designed to Prevent Pressure Ulcers.”, National Conference on Undergraduate Research (NCUR), Asheville, NC, 2016. <br>
+    [<a href="http://www.ncurproceedings.org/ojs/index.php/NCUR2016/article/view/1976">Link</a>] </p>
+
+    <h6>Presentations</h6>
+  </div>
+  <div class="list-box">
+    <h6> Medication Management for Patients after Open-heart Surgery </h6>
+    <p>Java desktop application that helps patients recently recovered from open-heart surgery to manage their medications. The application is a part of the research project on health care management guided by Dr. Arshia Khan from the CS department at the University of Minnesota Duluth.</p>
+
+    <h6>Papers</h6>
+    <p> Khan, A., Phung, N, Madden, J. "A Treatment Adherence Mobile Application Designed Specifically for Patients after Open-Heart Surgery". Proceedings of the International Conference on Health Informatics and Medical Systems, Las Vegas, NV, July 2017 <br>
+    [<a href="http://www.d.umn.edu/~akhan/research/HIM3287.pdf">Link</a>] </p>
+  </div>
+
+  <a name="other-works"></a>
+  <h5>Other Works</h5>
+  <p>Besides the main research interests, I also spend my free time writing softwares and having fun with programming. I am working on a data analysis package that is similar to the pandas package in Python. This package is written for Racket language and is named rdap (Racket Data Analysis Package).</p>
+  <div class="list-box">
+    <h6>rdap</h6>
+    <p>rdap - Racket data analysis package. This package is inspired by the pandas package introduced in Python. I am implenting this package to provide 2 main data structures used in machine learning: series and data frame. More updates will be announced in the future. <br>
+    [<a href="https://github.com/phung025/rdap">Link</a>]</p>
+
+    <h6>Sudoku</h6>
+    <p>Free Android sudoku game written in C# programming language and Unity game engine.<br>
+    [<a href="https://play.google.com/store/apps/details?id=com.LowBudgetStudio.Sudoku">Link</a>]</p>
+
+    <h6>Ecolibrium3 Solar Map Android Application</h6>
+    <p>Junior year class project in software engineering course that focuses on developing Android mobile application that displays the solar energy map of Duluth, MN to help improve the solar panel efficiency of the city. <br>
+    [<a href="https://github.com/phung025/ecolibrium3_solar_map">Link</a>]</p>
+
+    <h6>Problem Solver</h6>
+    <p>Sophomore year class project from CS 2511: Software Analysis & Design. The program implements some graph search algorithms such as Depth First Search, Breadth First Search, and A* Search to solve some puzzles games such as 8-puzzle, blocks world, Hanoi tower, etc. <br>
+    [<a href="https://github.com/phung025/ProblemSolver_CS2511">Link</a>]</p>
+  </div>
+
+  <a name="teaching"></a>
+  <h5>Teaching</h5>
+  <ul>
+    <li>Fall 2016: CS 1581 - Honors: Computer Science</li>
+  </ul>
+
+  <h5>Personal</h5>
+  <p>When not working, I love to watch movies and read books. As a matter of fact, I'm a big fan of The Lord of The Rings (both the book and the movie) and I’m about to finish the first of the 3 books. Besides that I also love soccer. I also like playing games (RuneScape, Lord of The Rings Online, etc), watching the Premier League soccer games, and cheering for my favorite Manchester United F.C.</p>
+
+</div>
+
+</body>
+</html>
