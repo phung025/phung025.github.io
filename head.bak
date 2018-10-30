@@ -1,0 +1,16 @@
+#lang racket
+
+;; Head tag content
+
+(define site-title "Nam Phung")
+(define site-style "")
+
+(define generate-head
+  (lambda ()
+    (quasiquote (head
+      (meta ((name "viewport")
+             (content "width=device-width initial-scale=1")))
+      (link ((href "https://fonts.googleapis.com/css?family=IBM+Plex+Sans")
+             (rel "stylesheet")))
+      (title (unquote site-title))
+      (style (unquote site-style))))))

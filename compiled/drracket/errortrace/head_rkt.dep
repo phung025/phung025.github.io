@@ -1,0 +1,1 @@
+("6.12" ("2e51d57aa2eed895fba28be82fd013daef51a56f" . "7e0904998cfe1b7ad1a877c47d00ec9f9e3e4947") #"C:\\Users\\Nam Phung\\Desktop\\phung025.github.io\\.\\content\\data\\about-box.rkt" (collects #"errortrace" #"errortrace-key.rkt") (collects #"racket" #"main.rkt") (collects #"racket" #"runtime-config.rkt"))

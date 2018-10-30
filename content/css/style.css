@@ -1,0 +1,74 @@
+body {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-style: normal;
+}
+
+h2, h5, h6 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+p, li {
+  font-size: 16px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+a:link, a:visited {
+  color: #007aa9;
+}
+
+a:hover {
+  color: #F8A500;
+}
+
+ul {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.sidenav {
+  background-color: #F1F0F0;
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  padding-top: 50px;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  display: block;
+}
+
+.main {
+  margin-left: 200px; /* Same as the width of the sidenav */
+  font-size: 24px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+.about-box {
+  background-color: #fdd5db;
+  padding: 15px;
+  border-radius: 25px;
+}
+
+.list-box {
+  border: 1px solid black;
+  padding: 15px;
+  border-radius: 25px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

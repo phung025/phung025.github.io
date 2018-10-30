@@ -1,0 +1,72 @@
+#lang racket
+
+;; This file contains the data content for generating the info box
+;; at the top of the portfolio site
+
+(provide full-name
+         majors-at
+         emails
+         links
+         resume
+         languages
+         research-interest
+         papers
+         others)
+
+;; Full name displayed as a header in the info box
+(define full-name "Nam Phung")
+
+;; List of majors & the school in which the majors are
+;; earned together with school website
+(define majors-at
+  (list
+   (list (list "Computer Science B.S."
+               "Statistics & Actualrial Science B.S."
+               "Mathematics Minor")
+         (list "University of Minnesota, Duluth"
+               "http://www.d.umn.edu"))))
+
+;; List of contact emails
+(define emails
+  (list "phung025@d.umn.edu"))
+
+;; List of professional profile sites
+(define links
+  (list (list "GitHub" "https://github.com/phung025")
+        (list "LinkedIn" "https://www.linkedin.com/in/namphung")))
+
+;; List containing resume info
+(define resume
+  (list "pdf"
+        "https://drive.google.com/file/d/1s-j1i58wHNmR1tfxhhQSUeD8d8lFUyGx/view"))
+
+;; List of programming languages
+(define languages
+  (list "Python"
+        "Java"
+        "C++"
+        "Racket"
+        "Objective-C"))
+
+;; List of research interest
+(define research-interest
+  (list "machine learning"
+        "artificial intelligence"
+        "data science"
+        "advance data structures & algorithms"))
+
+;; List of publications profile
+(define papers
+  (list (list "dblp"
+              "http://dblp.uni-trier.de/pers/hd/p/Phung:Nam")
+        (list "Google Scholar"
+              "https://scholar.google.com.vn/citations?user=MJB1RwIAAAAJ&hl=en")))
+
+;; List of other related sites
+(define others
+  (list (list "CodeSignal"
+              "https://app.codesignal.com/profile/Nam_Phung")
+        (list "HackerRank"
+              "https://www.hackerrank.com/phung025")
+        (list "CodeChef"
+              "https://www.codechef.com/users/nphung")))
