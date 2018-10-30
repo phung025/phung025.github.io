@@ -214,7 +214,8 @@
                                   ". More info about the static site generator can be found "
                                   (a ((href (unquote page-generator-url))) "here")
                                   ".")))))))
-  
+
+;; Generate the HTML code for the main tag
 (define generate-main
   (lambda ()
     (quasiquote (div ((class "main"))
@@ -222,7 +223,7 @@
                      (unquote (generate-about-box))
                      (a ((name "research")))
                      (unquote (generate-research-projects))
-                     (a ((name "side-projets")))
+                     (a ((name "side-projects")))
                      (unquote (generate-side-projects))
                      (a ((name "teaching")))
                      (unquote (generate-teaching))
