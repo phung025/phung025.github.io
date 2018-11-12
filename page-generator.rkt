@@ -1,15 +1,17 @@
 #lang racket
 
-(require web-server/servlet
-         web-server/servlet-env
-         (prefix-in head: "head.rkt")
+(require (prefix-in head: "head.rkt")
          (prefix-in body: "body.rkt")
          xml)
 
 (display "Generating page...\n")
-(call-with-output-file "index.html"
-  (lambda (out)
-    (write (string->symbol (xexpr->string (quasiquote (html
-                                                       (unquote (head:generate-head))
-                                                       (unquote (body:generate-body)))))) out)))
+(let ([output-file-name "index.html"])
+  (call-with-output-file output-file-name #:exists 'replace
+    (lambda (output-port)
+      (begin
+        (write-xexpr (quasiquote (html
+                                  (unquote (head:generate-head))
+                                  (unquote (body:generate-body))))
+                     output-port)
+        (close-output-port output-port)))))
 (display "Finished generating the static page!\n")
