@@ -9,7 +9,7 @@
               "rdap - Racket data analysis package. This package is inspired by the Python"
               "https://github.com/phung025/rdap")
         (list "Dots and Boxes AI with Reinforcement Learning"
-              "This is a class project for the course CS 5751 - Introduction to Machine Learning and Data Mining. The objective of this project is to build an agent that can play the game dots and boxes with a decent level. In the project, we buit several agents using different RL algorithms including TD-0 Learning and Q-Learning."
+              "This is a class project for the course CS 5751 - Introduction to Machine Learning and Data Mining. The objective of this project is to build an agent that can play the game dots and boxes with a decent level. In the project, we built several agents using different RL algorithms including TD-0 Learning and Q-Learning."
               "https://github.com/phung025/Dots_and_Boxes_RL")
         (list "Building Predictive Model for Weather Prediction in Szeged, Hungary"
               "This is a class project for the course STAT 5511 - Regression Analysis. Our project studies the relationship between temperature and other factors such as humidity, wind speed, pressure, visibility, date, etc by building predictive models. The project uses regression analysis (SLR and MLR) and classification analysis (KNN and Random Forest)."
