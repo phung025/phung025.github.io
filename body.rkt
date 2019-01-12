@@ -208,12 +208,12 @@
       (list 'footer
             '(hr)
             (quasiquote (p (small (small (unquote (string-append "Last update: "
-                                                          last-update
-                                                          ". This page was generated with "))
-                                  (a ((href (unquote racket-url))) "racket-lang")
-                                  ". More info about the static site generator can be found "
-                                  (a ((href (unquote page-generator-url))) "here")
-                                  "."))))))))
+                                                                 last-update
+                                                                 ". This page was generated with "))
+                                         (a ((href (unquote racket-url))) "racket-lang")
+                                         ". More info about the static site generator can be found "
+                                         (a ((href (unquote page-generator-url))) "here")
+                                         "."))))))))
 
 ;; Generate the HTML code for the main tag
 (define generate-main
