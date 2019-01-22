@@ -66,7 +66,7 @@
 ;; List of other related sites
 (define others
   (list (list "CodeSignal"
-              "https://app.codesignal.com/profile/Nam_Phung")
+              "https://app.codesignal.com/profile/phung025")
         (list "HackerRank"
               "https://www.hackerrank.com/phung025")
         (list "CodeChef"

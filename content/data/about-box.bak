@@ -53,7 +53,8 @@
   (list "machine learning"
         "artificial intelligence"
         "data science"
-        "advance data structures & algorithms"))
+        "optimization"
+        "evolutionary computation"))
 
 ;; List of publications profile
 (define papers
