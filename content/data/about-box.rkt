@@ -8,7 +8,6 @@
          emails
          links
          resume
-         languages
          research-interest
          papers
          others)
@@ -21,8 +20,7 @@
 (define majors-at
   (list
    (list (list "Computer Science B.S."
-               "Statistics & Actualrial Science B.S."
-               "Mathematics Minor")
+               "Statistics & Actualrial Science B.S.")
          (list "University of Minnesota, Duluth"
                "http://www.d.umn.edu"))))
 
@@ -39,14 +37,6 @@
 (define resume
   (list "pdf"
         "https://drive.google.com/file/d/1s-j1i58wHNmR1tfxhhQSUeD8d8lFUyGx/view"))
-
-;; List of programming languages
-(define languages
-  (list "Python"
-        "Java"
-        "C++"
-        "Racket"
-        "Objective-C"))
 
 ;; List of research interest
 (define research-interest
@@ -68,6 +58,4 @@
   (list (list "CodeSignal"
               "https://app.codesignal.com/profile/phung025")
         (list "HackerRank"
-              "https://www.hackerrank.com/phung025")
-        (list "CodeChef"
-              "https://www.codechef.com/users/nphung")))
+              "https://www.hackerrank.com/phung025")))

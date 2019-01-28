@@ -44,7 +44,6 @@
           [emails about-box:emails]
           [links about-box:links]
           [resume about-box:resume]
-          [languages about-box:languages]
           [research-interest about-box:research-interest]
           [papers about-box:papers]
           [others about-box:others])
@@ -92,10 +91,6 @@
                                              (unquote (car resume)))))
                              '("]")))
 
-            ;; Languages
-            (p (unquote (string-append "Languages: "
-                                       (string-join languages ", "))))
-
             ;; Research Interest
             (p (unquote (string-append "Research interest: "
                                        (string-join research-interest ", "))))
@@ -130,12 +125,10 @@
               (list '(h5 "Research Projects"))
               (map (lambda (x)
                      (let ([title (dict-ref x "title")]
-                           [description (dict-ref x "description")]
                            [papers (dict-ref x "papers")]
                            [presentations (dict-ref x "presentations")])
                        (quasiquote (div ((class "list-box"))
-                                        (h6 (unquote title))
-                                        (p (unquote description))
+                                        (div ((align "left")) (h6 (unquote title)))
                                         (unquote (if (not (null? (cdr papers)))
                                                      (quasiquote (div (h6 "Papers")
                                                                       (unquote (cons 'div (map (lambda (y) (quasiquote (p (unquote (cadr y))
@@ -184,11 +177,12 @@
                                                  (cons (quasiquote (p (b (unquote (car z)))))
                                                        (apply append (list (map (lambda (x)
                                                                                   (quasiquote (li
+                                                                                               ((style "list-style-type:none;"))
                                                                                                (unquote (car x))
                                                                                                (unquote (if (null? (cadr x))
                                                                                                             '(div)
                                                                                                             (quasiquote (div (p (u "Office Hours:"))
-                                                                                                                             (unquote (append '(ul) (map (lambda (y) (quasiquote (li (unquote y)))) (cadr x)))))))))))
+                                                                                                                             (unquote (append '(ul ((style "list-style-type:none;"))) (map (lambda (y) (quasiquote (li (unquote y)))) (cadr x)))))))))))
                                                                                 (cdr z)))))) classes))))))))
 
 ;; Generate HTML code to display the personal introduction
@@ -209,7 +203,7 @@
             '(hr)
             (quasiquote (p (small (small (unquote (string-append "Last update: "
                                                                  last-update
-                                                                 ". This page was generated with "))
+                                                                 ". This page was generated using "))
                                          (a ((href (unquote racket-url))) "racket-lang")
                                          ". More info about the static site generator can be found "
                                          (a ((href (unquote page-generator-url))) "here")

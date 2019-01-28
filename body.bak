@@ -129,13 +129,11 @@
       (append (list 'div)
               (list '(h5 "Research Projects"))
               (map (lambda (x)
-                     (let ([title (dict-ref x "title")]
-                           [description (dict-ref x "description")]
-                           [papers (dict-ref x "papers")]
+                     (let ([papers (dict-ref x "papers")]
                            [presentations (dict-ref x "presentations")])
                        (quasiquote (div ((class "list-box"))
-                                        (h6 (unquote title))
-                                        (p (unquote description))
+                                        ;(h6 (unquote title))
+                                        ;(p (unquote description))
                                         (unquote (if (not (null? (cdr papers)))
                                                      (quasiquote (div (h6 "Papers")
                                                                       (unquote (cons 'div (map (lambda (y) (quasiquote (p (unquote (cadr y))
@@ -207,13 +205,13 @@
           [page-generator-url footer:page-generator-url])
       (list 'footer
             '(hr)
-            (quasiquote (p (small (unquote (string-append "Last update: "
-                                                          last-update
-                                                          ". This page was generated with "))
-                                  (a ((href (unquote racket-url))) "racket-lang")
-                                  ". More info about the static site generator can be found "
-                                  (a ((href (unquote page-generator-url))) "here")
-                                  ".")))))))
+            (quasiquote (p (small (small (unquote (string-append "Last update: "
+                                                                 last-update
+                                                                 ". This page was generated with "))
+                                         (a ((href (unquote racket-url))) "racket-lang")
+                                         ". More info about the static site generator can be found "
+                                         (a ((href (unquote page-generator-url))) "here")
+                                         "."))))))))
 
 ;; Generate the HTML code for the main tag
 (define generate-main
