@@ -132,8 +132,7 @@
                                         (unquote (if (not (null? (cdr papers)))
                                                      (quasiquote (div (h6 "Papers")
                                                                       (unquote (cons 'div (map (lambda (y) (quasiquote (p (unquote (cadr y))
-                                                                                                                          (br)
-                                                                                                                          "["
+                                                                                                                          " ["
                                                                                                                           (a ((href (unquote (caddr y))))
                                                                                                                              "Link")
                                                                                                                           "]")))
@@ -142,8 +141,7 @@
                                         (unquote (if (not (null? (cdr presentations)))
                                                      (quasiquote (div (h6 "Presentations")
                                                                       (unquote (cons 'div (map (lambda (y) (quasiquote (p (unquote (cadr y))
-                                                                                                                          (br)
-                                                                                                                          "["
+                                                                                                                          " ["
                                                                                                                           (a ((href (unquote (caddr y))))
                                                                                                                              "Link")
                                                                                                                           "]")))
@@ -160,8 +158,7 @@
 
               (list (append '(div ((class "list-box"))) (map (lambda (x) (quasiquote (div (h6 (unquote (car x)))
                                                                                           (p (unquote (cadr x))
-                                                                                             (br)
-                                                                                             "["
+                                                                                             " ["
                                                                                              (a ((href (unquote (caddr x)))) "Link")
                                                                                              "]"))))
                                                              side-projects)))))))
@@ -200,7 +197,7 @@
           [racket-url footer:racket-url]
           [page-generator-url footer:page-generator-url])
       (list 'footer
-            '(hr)
+            '(hr ((size "1")))
             (quasiquote (p (small (small (unquote (string-append "Last update: "
                                                                  last-update
                                                                  ". This page was generated using "))
