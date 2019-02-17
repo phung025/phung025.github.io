@@ -134,9 +134,9 @@
                                         (unquote (if (not (null? (cdr papers)))
                                                      (quasiquote (div (h6 "Papers")
                                                                       (unquote (cons 'div (map (lambda (y) (append '(p)
-                                                                                                                   (list (string-append (cadr y) " "))
+                                                                                                                   (list (cadr y))
                                                                                                                    (apply append (map (lambda (e)
-                                                                                                                                        (list "["
+                                                                                                                                        (list " ["
                                                                                                                                               (quasiquote (a ((href (unquote (caddr e))))
                                                                                                                                                              (unquote (cadr e))))
                                                                                                                                               "] "))
@@ -146,9 +146,9 @@
                                         (unquote (if (not (null? (cdr presentations)))
                                                      (quasiquote (div (h6 "Presentations")
                                                                       (unquote (cons 'div (map (lambda (y) (append '(p)
-                                                                                                                   (list (string-append (cadr y) " "))
+                                                                                                                   (list (cadr y))
                                                                                                                    (apply append (map (lambda (e)
-                                                                                                                                        (list "["
+                                                                                                                                        (list " ["
                                                                                                                                               (quasiquote (a ((href (unquote (caddr e))))
                                                                                                                                                              (unquote (cadr e))))
                                                                                                                                               "] "))
@@ -165,10 +165,14 @@
               (list '(h5 "Side Projects"))
 
               (list (append '(div ((class "list-box"))) (map (lambda (x) (quasiquote (div (h6 (unquote (car x)))
-                                                                                          (p (unquote (cadr x))
-                                                                                             " ["
-                                                                                             (a ((href (unquote (caddr x)))) "Link")
-                                                                                             "]"))))
+                                                                                          (unquote (append '(p)
+                                                                                                           (list (cadr x))
+                                                                                                           (apply append (map (lambda (e)
+                                                                                                                                (list " ["
+                                                                                                                                      (quasiquote (a ((href (unquote (cadr e))))
+                                                                                                                                                     (unquote (car e))))
+                                                                                                                                      "] "))
+                                                                                                                              (caddr x))))))))
                                                              side-projects)))))))
 
 ;; Generate HTML code to display the taught classes

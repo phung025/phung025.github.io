@@ -62,12 +62,10 @@ ul {
 .about-box {
   background-color: #a3eaff;
   padding: 10px 15px 10px 15px;
-  border-radius: 15px;
 }
 
 .list-box {
   border: 1px solid black;
-  border-radius: 15px;
   padding: 10px 15px 10px 15px;
   margin-top: 10px;
   margin-bottom: 10px;
