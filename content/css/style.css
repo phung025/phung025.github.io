@@ -34,7 +34,6 @@ ul {
   padding-bottom: 0;
 }
 
-/*
 .sidenav {
   background-color: white;
   height: 100%;
@@ -53,10 +52,9 @@ ul {
   font-size: 20px;
   display: block;
 }
-*/
 
 .main {
-  margin-left: 0px; /* Same as the width of the sidenav */
+  margin-left: 200px; /* Same as the width of the sidenav */
   font-size: 24px; /* Increased text to enable scrolling */
   padding: 10px 10px 10px 10px;
 }

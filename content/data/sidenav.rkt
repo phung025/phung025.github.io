@@ -7,7 +7,7 @@
 
 (define avatar
   #hash(("src" . "content/img/avatar.jpg")
-        ("width" . "10%")
+        ("width" . "100%")
         ("alt" . "My Avatar")))
 
 (define tabs
