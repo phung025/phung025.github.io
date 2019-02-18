@@ -12,7 +12,8 @@
                                   (list "Phung, N. \"Evaluation of the Orion Outlier Detection Algorithm for Data Streams\", MinneWIC '19, Feb 2019, Duluth, MN."
                                         (list
                                          (list "link" "https://cdn.technologynetworks.com/ep/pdfs/evaluation-of-the-orion-outlier-detection-algorithm-for-data-streams.pdf")
-                                         (list "slides" "https://drive.google.com/open?id=1VuRs2O0ZQcwvVe_Wc53VC4QecYZx6hTk"))))))
+                                         (list "slides" "https://drive.google.com/open?id=1VuRs2O0ZQcwvVe_Wc53VC4QecYZx6hTk")
+                                         (list "certificate" "https://drive.google.com/open?id=1WjAQUh5oPMf94qGPrWwgCoATU6e5vWjk"))))))
         #hash(("title" . "Weight Shifting")
               ("description" . "Undergraduate research project with Dr. Arshia Khan from UMN Duluth to build a system consists of an iOS mobile application, a Raspberry PI, and a pressure mapping mattress that targets wheelchair-bound patients to help prevent pressure ulcers by reminding users to perform exercises and monitoring the weight off-loading to design algorithm that automatically detects weight shifting and study the correlation between the development of decubitus ulcers and sitting duration.")
               ("papers" . (list
