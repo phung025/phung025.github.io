@@ -86,7 +86,7 @@
 
             ;; Resume
             (unquote (append '(p)
-                             '("Resumé:")
+                             '("Resume:")
                              '(" [")
                              (quasiquote ((a ((href (unquote (cadr resume))))
                                              (unquote (car resume)))))

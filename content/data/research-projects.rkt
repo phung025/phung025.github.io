@@ -6,7 +6,7 @@
 
 (define research-projects
   (list #hash(("title" . "Orion Outlier Detection Algorithm for Data Streams")
-              ("description" . "I worked with Dr. Eleazar Leal from UMN Duluth on a project to optimize the density-based Orion outlier detection algorithm for data stream and analyze its performance against some existing distance-based outlier detection algorithms such as Abstract-C, MCOD, Approximate-Storm. The algorithm was implemented in Java using Watchmaker framework for evoluation algorithm and WEKA framework for clustering algorithm.")
+              ("description" . "Research project with Dr. Eleazar Leal that aims at analyzing and optimizing outlier detection algorithm for data stream. The target algorithm for the study is a density-based outlier detection algorithm called Orion from research papers at University of Oklahoma. Orion uses evolutionary computation and clustering algorithm to detect anomalies within a dataset. We conducted performance analysis of Orion against several distance-based outlier detection algorithms like Abstract-C, MCOD, and Approximate-Storm. We also developed and implemented new optimization solutions for Orion to reduce execution time in the evolutionary computation process.")
               ("papers" . (list))
               ("presentations" . (list
                                   (list "Phung, N. \"Evaluation of the Orion Outlier Detection Algorithm for Data Streams\", MinneWIC '19, Feb 2019, Duluth, MN."
@@ -15,7 +15,7 @@
                                          (list "slides" "https://drive.google.com/open?id=1VuRs2O0ZQcwvVe_Wc53VC4QecYZx6hTk")
                                          (list "certificate" "https://drive.google.com/open?id=1WjAQUh5oPMf94qGPrWwgCoATU6e5vWjk"))))))
         #hash(("title" . "Weight Shifting")
-              ("description" . "Undergraduate research project with Dr. Arshia Khan from UMN Duluth to build a system consists of an iOS mobile application, a Raspberry PI, and a pressure mapping mattress that targets wheelchair-bound patients to help prevent pressure ulcers by reminding users to perform exercises and monitoring the weight off-loading to design algorithm that automatically detects weight shifting and study the correlation between the development of decubitus ulcers and sitting duration.")
+              ("description" . "Undergraduate research project with Dr. Arshia Khan to build a system consists of an iOS mobile application, a Raspberry PI, and a pressure mapping mattress that targets wheelchair-bound patients to help prevent pressure ulcers and study the correlation between the development of decubitus ulcers and sitting time. A Raspberry PI 3 computer connects the mattress and retrieves the data through a USB port using a Python script. The Raspberry PI acts as a peripheral device and transfer the data back to the iOS device using its built-in Bluetooth 4.0 module. The iOS app uses the CoreBluetooth framework to receive the data and uses it to visualize the real-time pressure mapping of users' buttocks area. The mobile app uses the data as input for a threshold-based algorithm to automatically detect weight shifting.")
               ("papers" . (list
                            (list "Khan, A., Reuter, M., Phung, N. \"Wireless Solution to Prevent Decubitus Ulcers: Preventive Weight Shifting Guide, Monitor, and Tracker App for Wheel Chair Users with Spinal Cord Injuries (Phase II)\", Proceedings of the IEEE Healthcom, Munich, Germany, Sept 2016."
                                  (list
