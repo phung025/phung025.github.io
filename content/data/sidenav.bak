@@ -6,13 +6,15 @@
          tabs)
 
 (define avatar
-  #hash(("src" . "content/img/avatar.jpg")
-        ("width" . "50%")
+  #hash(("src" . "content/img/avatar.png")
+        ("width" . "100%")
         ("alt" . "My Avatar")))
 
 (define tabs
   (list #hash(("href" . "#about")
               ("content" . "About"))
+        #hash(("href" . "#experience")
+              ("content" . "Work Experience"))
         #hash(("href" . "#research")
               ("content" . "Research"))
         #hash(("href" . "#side-projects")

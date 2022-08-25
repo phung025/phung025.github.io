@@ -10,7 +10,9 @@
   (list
    (list "University of Minnesota, Duluth"
          (list "Fall 2018: CS 1581 - Honors: Computer Science"
-               (list)) ;; List of available office hours
+               (list)) ;; List of available office hours in string
          (list "Fall 2016: CS 1581 - Honors: Computer Science"
+               (list))
+         (list "Fall 2022: CS 1511: Computer Science 1"
                (list)))))
 

@@ -3,8 +3,7 @@
 (require gregor)
 
 (provide last-update
-         racket-url
-         page-generator-url)
+         racket-url)
 
 (define last-update
   (let* [(calendar (parameterize ([current-clock (lambda () (current-posix-seconds))])
@@ -14,5 +13,3 @@
     (parameterize ([current-locale "en"])
       (string-append (~t time "hh:mm:ss a") " - " (~t date "EEEE, MMMM d, y G")))))
 (define racket-url "https://www.racket-lang.org/")
-(define page-generator-url "https://github.com/phung025/phung025.github.io")
-

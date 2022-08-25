@@ -5,6 +5,7 @@
 
 (require (prefix-in sidenav:"./content/data/sidenav.rkt"))
 (require (prefix-in about-box:"./content/data/about-box.rkt"))
+(require (prefix-in work-experience:"./content/data/work-experience.rkt"))
 (require (prefix-in research-projects:"./content/data/research-projects.rkt"))
 (require (prefix-in side-projects:"./content/data/side-projects.rkt"))
 (require (prefix-in teaching:"./content/data/teaching.rkt"))
@@ -37,6 +38,33 @@
 
 ;; Generate HTML code to display content in the info box at top
 ;; of the page
+(define generate-header
+  (lambda ()
+    (let ([full-name about-box:full-name]
+          [majors-at about-box:majors-at]
+          [emails about-box:emails]
+          [links about-box:links]
+          [resume about-box:resume]
+          [research-interest about-box:research-interest]
+          [papers about-box:papers]
+          [others about-box:others])
+      (quasiquote
+       (div ((class "about-box-header"))
+            
+            ;; Full name
+            (h2 (unquote full-name))
+            
+            ;; Majors
+            (unquote (append '(p)
+                             (apply append (map (lambda (x)
+                                                  (list (append '(p)
+                                                                (list (string-append (string-join (car x) ", ") " @ "))
+                                                                (list (append (quasiquote (a ((href (unquote (cadadr x))))))
+                                                                              (list (quasiquote (unquote (caadr x)))))))))
+                                                majors-at)))))))))
+
+;; Generate HTML code to display content in the info box at top
+;; of the page
 (define generate-about-box
   (lambda ()
     (let ([full-name about-box:full-name]
@@ -49,23 +77,12 @@
           [others about-box:others])
       (quasiquote
        (div ((class "about-box"))
-            ;; Full name
-            (h2 (unquote full-name))
-            
-            ;; Majors
-            (unquote (append '(p)
-                             (apply append (map (lambda (x)
-                                                  (list (append '(p)
-                                                                (list (string-append (string-join (car x) ", ") " @ "))
-                                                                (list (append (quasiquote (a ((href (unquote (cadadr x))))))
-                                                                              (list (quasiquote (unquote (caadr x)))))))))
-                                                majors-at))))
             
             ;; Emails
             (unquote (append '(p)
-                             '("Email: ")
+                             '("Email:")
                              (apply append (map (lambda (e)
-                                                  (list "["
+                                                  (list " ["
                                                         (quasiquote (a ((href (unquote (string-append "mailto:" e))))
                                                                        (unquote e)))
                                                         "]"
@@ -74,9 +91,9 @@
             
             ;; Links
             (unquote (append '(p)
-                             '("Links: ")
+                             '("Links:")
                              (apply append (map (lambda (e)
-                                                  (list "["
+                                                  (list " ["
                                                         (quasiquote (a ((href (unquote (cadr e))))
                                                                        (unquote (car e))))
                                                         "]"
@@ -85,8 +102,8 @@
 
             ;; Resume
             (unquote (append '(p)
-                             '("Resumé: ")
-                             '("[")
+                             '("Resume:")
+                             '(" [")
                              (quasiquote ((a ((href (unquote (cadr resume))))
                                              (unquote (car resume)))))
                              '("]")))
@@ -97,25 +114,36 @@
 
             ;; Papers
             (unquote (append '(p)
-                             '("Papers: ")
+                             '("Papers:")
                              (apply append (map (lambda (e)
-                                                  (list "["
+                                                  (list " ["
                                                         (quasiquote (a ((href (unquote (cadr e))))
                                                                        (unquote (car e))))
-                                                        "]"
-                                                        " "))
+                                                        "]"))
                                                 papers))))
 
             ;; Others
             (unquote (append '(p)
-                             '("Others: ")
+                             '("Others:")
                              (apply append (map (lambda (e)
-                                                  (list "["
+                                                  (list " ["
                                                         (quasiquote (a ((href (unquote (cadr e))))
                                                                        (unquote (car e))))
-                                                        "]"
-                                                        " "))
+                                                        "]"))
                                                 others)))))))))
+
+;; Generate HTML code to display the careers
+(define generate-work-experience
+  (lambda ()
+    (let ([work-experience work-experience:work-experience])
+      (append (list 'div)
+              (list '(h5 "Work Experience"))
+
+              (list (append '(div ((class "list-box"))) (map (lambda (x) (quasiquote (div (h6 (unquote (car x)))
+                                                                                          (p (unquote (cadr x)))
+                                                                                          (unquote (cons 'div (map (lambda (x) (append '(p) (list (string-append " - " x))))
+                                                                                                                   (caddr x)))))))
+                                                             work-experience)))))))
 
 ;; Generate HTML code to display the research projects
 (define generate-research-projects
@@ -125,26 +153,34 @@
               (list '(h5 "Research Projects"))
               (map (lambda (x)
                      (let ([title (dict-ref x "title")]
-                           [papers (cadr (dict-ref x "papers"))]
+                           [description (dict-ref x "description")]
+                           [papers (dict-ref x "papers")]
                            [presentations (dict-ref x "presentations")])
                        (quasiquote (div ((class "list-box"))
                                         (div ((align "left")) (h6 (unquote title)))
+                                        (p (unquote description))
                                         (unquote (if (not (null? (cdr papers)))
                                                      (quasiquote (div (h6 "Papers")
-                                                                      (unquote (cons 'div (map (lambda (y) (quasiquote (p (unquote (car y))
-                                                                                                                          " ["
-                                                                                                                          (a ((href (unquote (cadr y))))
-                                                                                                                             "Link")
-                                                                                                                          "]")))
+                                                                      (unquote (cons 'div (map (lambda (y) (append '(p)
+                                                                                                                   (list (cadr y))
+                                                                                                                   (apply append (map (lambda (e)
+                                                                                                                                        (list " ["
+                                                                                                                                              (quasiquote (a ((href (unquote (caddr e))))
+                                                                                                                                                             (unquote (cadr e))))
+                                                                                                                                              "]"))
+                                                                                                                                      (cdaddr y)))))
                                                                                                (cdr papers))))))
                                                      '(div)))
                                         (unquote (if (not (null? (cdr presentations)))
                                                      (quasiquote (div (h6 "Presentations")
-                                                                      (unquote (cons 'div (map (lambda (y) (quasiquote (p (unquote (cadr y))
-                                                                                                                          " ["
-                                                                                                                          (a ((href (unquote (caddr y))))
-                                                                                                                             "Link")
-                                                                                                                          "]")))
+                                                                      (unquote (cons 'div (map (lambda (y) (append '(p)
+                                                                                                                   (list (cadr y))
+                                                                                                                   (apply append (map (lambda (e)
+                                                                                                                                        (list " ["
+                                                                                                                                              (quasiquote (a ((href (unquote (caddr e))))
+                                                                                                                                                             (unquote (cadr e))))
+                                                                                                                                              "]"))
+                                                                                                                                      (cdaddr y)))))
                                                                                                (cdr presentations))))))
                                                      '(div)))))))
                    projects)))))
@@ -157,10 +193,14 @@
               (list '(h5 "Side Projects"))
 
               (list (append '(div ((class "list-box"))) (map (lambda (x) (quasiquote (div (h6 (unquote (car x)))
-                                                                                          (p (unquote (cadr x))
-                                                                                             " ["
-                                                                                             (a ((href (unquote (caddr x)))) "Link")
-                                                                                             "]"))))
+                                                                                          (unquote (append '(p)
+                                                                                                           (list (cadr x))
+                                                                                                           (apply append (map (lambda (e)
+                                                                                                                                (list " ["
+                                                                                                                                      (quasiquote (a ((href (unquote (cadr e))))
+                                                                                                                                                     (unquote (car e))))
+                                                                                                                                      "]"))
+                                                                                                                              (caddr x))))))))
                                                              side-projects)))))))
 
 ;; Generate HTML code to display the taught classes
@@ -194,16 +234,13 @@
 (define generate-footer
   (lambda ()
     (let ([last-update footer:last-update]
-          [racket-url footer:racket-url]
-          [page-generator-url footer:page-generator-url])
+          [racket-url footer:racket-url])
       (list 'footer
             '(hr ((size "1")))
             (quasiquote (p (small (small (unquote (string-append "Last update: "
                                                                  last-update
                                                                  ". This page was generated using "))
                                          (a ((href (unquote racket-url))) "racket-lang")
-                                         ". More info about the static site generator can be found "
-                                         (a ((href (unquote page-generator-url))) "here")
                                          "."))))))))
 
 ;; Generate the HTML code for the main tag
@@ -211,17 +248,15 @@
   (lambda ()
     (quasiquote (div ((class "main"))
                      (a ((name "about")))
+                     (unquote (generate-header))
                      (unquote (generate-about-box))
+                     (a ((name "teaching")))
+                     (unquote (generate-teaching))
+                     (a ((name "experience")))
+                     (unquote (generate-work-experience))                     
                      (a ((name "research")))
                      (unquote (generate-research-projects))
                      (a ((name "side-projects")))
                      (unquote (generate-side-projects))
-                     (a ((name "teaching")))
-                     (unquote (generate-teaching))
                      (unquote (generate-personal))
                      (unquote (generate-footer))))))
-
-
-
-
-

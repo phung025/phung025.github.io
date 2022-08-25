@@ -5,6 +5,7 @@
 
 (require (prefix-in sidenav:"./content/data/sidenav.rkt"))
 (require (prefix-in about-box:"./content/data/about-box.rkt"))
+(require (prefix-in work-experience:"./content/data/work-experience.rkt"))
 (require (prefix-in research-projects:"./content/data/research-projects.rkt"))
 (require (prefix-in side-projects:"./content/data/side-projects.rkt"))
 (require (prefix-in teaching:"./content/data/teaching.rkt"))
@@ -37,6 +38,33 @@
 
 ;; Generate HTML code to display content in the info box at top
 ;; of the page
+(define generate-header
+  (lambda ()
+    (let ([full-name about-box:full-name]
+          [majors-at about-box:majors-at]
+          [emails about-box:emails]
+          [links about-box:links]
+          [resume about-box:resume]
+          [research-interest about-box:research-interest]
+          [papers about-box:papers]
+          [others about-box:others])
+      (quasiquote
+       (div ((class "about-box-header"))
+            
+            ;; Full name
+            (h2 (unquote full-name))
+            
+            ;; Majors
+            (unquote (append '(p)
+                             (apply append (map (lambda (x)
+                                                  (list (append '(p)
+                                                                (list (string-append (string-join (car x) ", ") " @ "))
+                                                                (list (append (quasiquote (a ((href (unquote (cadadr x))))))
+                                                                              (list (quasiquote (unquote (caadr x)))))))))
+                                                majors-at)))))))))
+
+;; Generate HTML code to display content in the info box at top
+;; of the page
 (define generate-about-box
   (lambda ()
     (let ([full-name about-box:full-name]
@@ -49,18 +77,6 @@
           [others about-box:others])
       (quasiquote
        (div ((class "about-box"))
-            
-            ;; Full name
-            (h2 (unquote full-name))
-            
-            ;; Majors
-            (unquote (append '(p)
-                             (apply append (map (lambda (x)
-                                                  (list (append '(p)
-                                                                (list (string-append (string-join (car x) ", ") " @ "))
-                                                                (list (append (quasiquote (a ((href (unquote (cadadr x))))))
-                                                                              (list (quasiquote (unquote (caadr x)))))))))
-                                                majors-at))))
             
             ;; Emails
             (unquote (append '(p)
@@ -115,6 +131,19 @@
                                                                        (unquote (car e))))
                                                         "]"))
                                                 others)))))))))
+
+;; Generate HTML code to display the careers
+(define generate-work-experience
+  (lambda ()
+    (let ([work-experience work-experience:work-experience])
+      (append (list 'div)
+              (list '(h5 "Work Experience"))
+
+              (list (append '(div ((class "list-box"))) (map (lambda (x) (quasiquote (div (h6 (unquote (car x)))
+                                                                                          (p (unquote (cadr x)))
+                                                                                          (unquote (cons 'div (map (lambda (x) (append '(p) (list (string-append " • " x))))
+                                                                                                                   (caddr x)))))))
+                                                             work-experience)))))))
 
 ;; Generate HTML code to display the research projects
 (define generate-research-projects
@@ -190,7 +219,7 @@
                                                                                                (unquote (if (null? (cadr x))
                                                                                                             '(div)
                                                                                                             (quasiquote (div (p (u "Office Hours:"))
-                                                                                                                             (unquote (append '(ul ((style "list-style-type:none;"))) (map (lambda (y) (quasiquote (li (unquote y)))) (cadr x)))))))))))
+                                                                                                                             (unquote (append '(ul ((style "list-style-type:square;"))) (map (lambda (y) (quasiquote (li (unquote y)))) (cadr x)))))))))))
                                                                                 (cdr z)))))) classes))))))))
 
 ;; Generate HTML code to display the personal introduction
@@ -205,16 +234,13 @@
 (define generate-footer
   (lambda ()
     (let ([last-update footer:last-update]
-          [racket-url footer:racket-url]
-          [page-generator-url footer:page-generator-url])
+          [racket-url footer:racket-url])
       (list 'footer
             '(hr ((size "1")))
             (quasiquote (p (small (small (unquote (string-append "Last update: "
                                                                  last-update
                                                                  ". This page was generated using "))
                                          (a ((href (unquote racket-url))) "racket-lang")
-                                         ". More info about the static site generator can be found "
-                                         (a ((href (unquote page-generator-url))) "here")
                                          "."))))))))
 
 ;; Generate the HTML code for the main tag
@@ -222,17 +248,15 @@
   (lambda ()
     (quasiquote (div ((class "main"))
                      (a ((name "about")))
+                     (unquote (generate-header))
                      (unquote (generate-about-box))
+                     (a ((name "teaching")))
+                     (unquote (generate-teaching))
+                     (a ((name "experience")))
+                     (unquote (generate-work-experience))                     
                      (a ((name "research")))
                      (unquote (generate-research-projects))
                      (a ((name "side-projects")))
                      (unquote (generate-side-projects))
-                     (a ((name "teaching")))
-                     (unquote (generate-teaching))
                      (unquote (generate-personal))
                      (unquote (generate-footer))))))
-
-
-
-
-

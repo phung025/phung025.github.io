@@ -22,11 +22,15 @@
    (list (list "Computer Science B.S."
                "Statistics & Actualrial Science B.S.")
          (list "University of Minnesota, Duluth"
+               "http://www.d.umn.edu"))
+   (list (list "Computer Science M.S.")
+         (list "University of Minnesota, Duluth"
                "http://www.d.umn.edu"))))
 
 ;; List of contact emails
 (define emails
-  (list "phung025@d.umn.edu"))
+  (list "phungle.thanhnam@gmail.com"
+        "phung025@d.umn.edu"))
 
 ;; List of professional profile sites
 (define links
@@ -41,9 +45,8 @@
 ;; List of research interest
 (define research-interest
   (list "machine learning"
-        "artificial intelligence"
         "data science"
-        "optimization"
+        "software engineer"
         "evolutionary computation"))
 
 ;; List of publications profile
