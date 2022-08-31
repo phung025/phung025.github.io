@@ -31,7 +31,7 @@ a {
 }
 
 a:link, a:visited {
-  color: #00b4db;
+  color: #790019;
 }
 
 a:hover {
@@ -77,11 +77,11 @@ ul {
 }
 
 .about-box-header {
-  background-color: #00b4db;
+  background-color: #790019;
   padding: 10px 15px 10px 15px;
   color: white;
   box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
-  border: 1px solid rgb(0, 180, 219);
+  border: 1px solid rgb(121, 0, 25);
  }
 
 .about-box-header a:link, .about-box-header a:visited {
@@ -96,13 +96,13 @@ ul {
 .about-box {
   background-color: white;
   padding: 10px 15px 10px 15px;
-  color: #00b4db;
-  box-shadow: 0 2px 5px 0 rgba(0, 180, 219, 0.16),0 2px 10px 0 rgba(0, 180, 219, 0.16);
-  border: 1px solid rgb(0, 180, 219);
+  color: #790019;
+  box-shadow: 0 2px 5px 0 rgba(121, 0, 25, 0.16),0 2px 10px 0 rgba(121, 0, 25, 0.16);
+  border: 1px solid rgb(121, 0, 25);
 }
 
 .about-box a:link, .about-box a:visited {
-  color: #00b4db;
+  color: #790019;
 }
 
 .about-box a:hover {
@@ -111,7 +111,7 @@ ul {
 }
 
 .list-box {
-  border: 1px solid rgb(0, 180, 219);
+  border: 1px solid rgb(121, 0, 25);
   border-radius: 0.3rem;
   padding: 10px 15px 10px 15px;
   margin-top: 10px;
