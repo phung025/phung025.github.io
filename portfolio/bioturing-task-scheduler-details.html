@@ -47,13 +47,13 @@
         <div class="row">
 
           <div class="col-lg-8">
-            <h2 class="portfolio-title">BioTuring Data Delivery Pipeline</h2>
+            <h2 class="portfolio-title">BioTuring Task Scheduler</h2>
 
             <div class="portfolio-details-slider swiper">
               <div class="swiper-wrapper align-items-center">
 
                 <div class="swiper-slide">
-                  <img src="../assets/img/portfolio/data_delivery_pipeline.png" alt="" style="max-width: 850px;">
+                  <img src="../assets/img/portfolio/bioturing_task_scheduler.png" alt="" style="max-width: 850px;">
                 </div>
 
               </div>
@@ -68,11 +68,11 @@
               <li><strong>Category</strong>: Backend service</li>
               <li><strong>Location</strong>: <em>BioTuring | Vietnam</em></li>
               <li><strong>URL</strong>: <a href="https://bioturing.com/" target="_blank">https://bioturing.com/</a></li>
-              <li><h5>12/2021 - 02/2022</h5></li>
+              <li><h5>04/2022 - 06/2022</h5></li>
             </ul>
 
             <p>
-              BioTuring data delivery pipeline is <highlight>used by BioTuring's data science team to publish the curated data to the public database</highlight> for BBrowser's users to download. The pipeline takes data release request from the data adminsitrator through the interface on BBrowser. The request is pushed to a delivery task queue where the task manager will distribute the requests to the workers. Each worker processes one request & releases the data to Amazon S3, metadata to MongoDB, and logs the result to MySQL DB.
+              BioTuring task scheduler is incorporated into BBrowser in offlined mode and BioTuring Enterprise Server Platform (BESP) in online mode. The service is used to schedule heavy time-consuming tasks initiated by the users. Originally, BBrowser's users can only execute one analytical task at a time, however, many updates bring more complex tasks that can no longer be done in real-time. The task scheduler solved these issues by pushing the task requests into a task queue where the task handler in the service can retrieve & process them. The task results are then stored in a TTL cache.
             </p>
 
             <h3>My Contributions</h3>
@@ -80,8 +80,8 @@
               <div class="resume-item">
                 <h4>BioTuring Data Delivery Pipeline</h4>
                 <ul>
-                  <li><i class="bi bi-chevron-right"></i> Built the pipeline's architecture, API server, and the interface for users to interact with.</li>
-                  <li><i class="bi bi-chevron-right"></i> Maintained the pipeline & fixed existing bugs.</li>
+                  <li><i class="bi bi-chevron-right"></i> Built the scheduler's architecture and API service.</li>
+                  <li><i class="bi bi-chevron-right"></i> Maintained the service & fixed existing bugs.</li>
                 </ul>
               </div>
             </div>
