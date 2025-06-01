@@ -24,7 +24,7 @@ body {
 body::before {
   content: "";
   position: fixed;
-  /* background: #040404 url("../img/bg.jpg") top right no-repeat; */
+  /* background: #040404 url("../img/bg.png") top right no-repeat; */
   background-color: #F9F6EF;
   background-size: cover;
   left: 0;
@@ -76,7 +76,7 @@ h6 {
 }
 
 #header h1 {
-  font-size: 48px;
+  font-size: 64px;
   margin: 0;
   padding: 0;
   line-height: 1;
@@ -230,7 +230,7 @@ h6 {
   justify-content: space-between;
   padding: 0;
   font-family: Inconsolata,monospace;
-  font-size: 16px;
+  font-size: 24px;
   font-weight: 400;
   color: #333;
   white-space: nowrap;
@@ -338,6 +338,7 @@ h6 {
 
 .navbar-mobile a,
 .navbar-mobile a:focus {
+  color: #F9F6EF;
   font-size: 16px;
   position: relative;
 }
@@ -642,7 +643,7 @@ section .container {
 }
 
 .resume .download-resume:hover {
-  color: white;
+  color: #F9F6EF;
   transition: all 0.3s ease-in-out 0s;
   background-color: red;
 }
@@ -1200,6 +1201,7 @@ section .container {
 
 @media (max-width: 992px) {
   .credits {
+    color: #F9F6EF;
     text-align: center;
     padding: 10px;
     background: rgba(0, 0, 0, 0.8);
