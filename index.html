@@ -51,6 +51,7 @@
           <li><a class="nav-link active" href="#header">Home</a></li>
           <li><a class="nav-link" href="#resume">Resume</a></li>
           <li><a class="nav-link" href="#portfolio">Portfolio</a></li>
+          <li><a class="nav-link" href="#publications">Publications</a></li>
           <li><a href="https://www.linkedin.com/in/namphung/" target="_blank" class="linkedin"><i class="bi bi-linkedin"></i></a></li>
           <li><a href="https://github.com/phung025/" target="_blank" class="github"><i class="bi bi-github"></i></a></li>
         </ul>
@@ -296,6 +297,45 @@
 
     </div>
   </section><!-- End Portfolio Section -->
+
+  <!-- ======= Publications Section ======= -->
+  <section id="publications" class="publications">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Publications</h2>
+      </div>
+
+      <div class="row about-me">
+        <div class="col-lg-12 pt-4 pt-lg-0 content" data-aos="fade-left">
+          <div class="row">
+            <div id="publicationsList">
+            </div>
+            <script type="text/javascript">
+                let parentDiv = document.getElementById("publicationsList");
+                let heading = document.createElement("h1");
+                let unordered_list = document.createElement("ul");
+                parentDiv.appendChild(unordered_list)
+
+                let titles = [
+                  'Phung, Nam, et al. "Short Paper: Predictive Trajectory Stream Indexing." 2024 IEEE International Conference on Big Data (BigData). IEEE, 2024.',
+                  'Le, Tri, et al. "BBrowser: Making single-cell data easily accessible." BioRxiv (2020): 2020-12.',
+                  'Khan, Arshia, and Nam Phung. "Undergraduate research in assistive technology: Design and development of a preventive weight shifting app to reduce the risk of pressure ulcers in wheelchair bound patients with spinal cord injuries (Phase 1)." Journal of Medical Devices 10.2 (2016): 020927.',
+                  'Phung, Nam. "Assistive Technology: Mobile App Designed to Prevent Pressure Ulcers." Assistive Technology (2016).',
+                  'Khan, Arshia A., et al. "Wireless solution to prevent decubitus ulcers: Preventive weight shifting guide, monitor, and tracker app for wheel chair users with spinal cord injuries (phase II)." 2016 IEEE 18th International Conference on e-Health Networking, Applications and Services (Healthcom). IEEE, 2016.'
+                ];
+                for (let i = 0; i < titles.length; ++i) {
+                  let li_elem = document.createElement("li");
+                  unordered_list.appendChild(li_elem);
+                  unordered_list.childNodes[i].innerHTML = `<i class="bi bi-chevron-right"></i><strong>[${i+1}]</strong><span>${titles[i]}</span>`;
+                }
+            </script>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section><!-- End Publications Section -->
 
   <div class="credits">
     <!-- All the links in the footer should remain intact. -->
