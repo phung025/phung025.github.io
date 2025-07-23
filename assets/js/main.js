@@ -68,6 +68,12 @@
       let sections = select('section', true)
       let navlinks = select('#navbar .nav-link', true)
 
+      // Hide the small tag on clicking any navbar item
+      const smallTag = select('.intro small');
+      if (smallTag && this.hash !== '#header') {
+        smallTag.style.display = 'none';  // Hide the small tag
+      }
+
       navlinks.forEach((item) => {
         item.classList.remove('active')
       })
@@ -86,6 +92,10 @@
         sections.forEach((item) => {
           item.classList.remove('section-show')
         })
+        // Show the small tag again when the header is clicked
+        if (smallTag) {
+          smallTag.style.display = 'inline';  // Make the small tag visible again
+        }
         return;
       }
 
@@ -214,14 +224,14 @@
   });
 
   /**
-   * Initiate portfolio lightbox 
+   * Initiate portfolio lightbox
    */
   const portfolioLightbox = GLightbox({
     selector: '.portfolio-lightbox'
   });
 
   /**
-   * Initiate portfolio details lightbox 
+   * Initiate portfolio details lightbox
    */
   const portfolioDetailsLightbox = GLightbox({
     selector: '.portfolio-details-lightbox',
@@ -247,7 +257,7 @@
   });
 
   /**
-   * Initiate Pure Counter 
+   * Initiate Pure Counter
    */
   new PureCounter();
 

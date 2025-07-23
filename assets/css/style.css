@@ -75,13 +75,42 @@ h6 {
   transition: ease-in-out 0.3s;
 }
 
-#header h1 {
+#header .intro h1 {
   font-size: 64px;
   margin: 0;
   padding: 0;
   line-height: 1;
-  font-weight: 700;
-  font-family: Inconsolata,monospace;
+  font-weight: 400;
+  font-family: Inconsolata, monospace;
+  font-size: 7vw;
+  line-height: .88;
+  margin-right: 10px;  /* Optional: Add some space between h1 and small */
+}
+
+.intro {
+    flex: 1; /* This ensures that the intro takes up only necessary space */
+    text-align: left; /* Align the text to the left */
+}
+
+.navbar {
+    flex: 0; /* Prevent the navbar from expanding */
+    text-align: right; /* Align the navbar to the right */
+}
+
+.intro {
+  display: flex;
+  align-items: baseline;  /* Align the bottom of the text */
+}
+
+.intro small {
+  color: #777;          /* Optional: Make small text a lighter color */
+}
+
+/* Media query for small screens (e.g., mobile) */
+@media (max-width: 991px) {
+  .intro small {
+    display: none;  /* Hide the small tag on small screens */
+  }
 }
 
 #header h1 a,
