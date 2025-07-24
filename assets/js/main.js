@@ -92,11 +92,13 @@
         sections.forEach((item) => {
           item.classList.remove('section-show')
         })
-        // Show the small tag again when the header is clicked
         if (smallTag) {
-          smallTag.style.display = 'inline';  // Make the small tag visible again
+          smallTag.style.display = 'inline';
         }
+        initFractalCanvas();
         return;
+      } else {
+        stopFractalCanvas();
       }
 
       if (!header.classList.contains('header-top')) {
@@ -125,7 +127,6 @@
   window.addEventListener('load', () => {
     if (window.location.hash) {
       let initial_nav = select(window.location.hash)
-
       if (initial_nav) {
         let header = select('#header')
         let navlinks = select('#navbar .nav-link', true)
@@ -260,5 +261,88 @@
    * Initiate Pure Counter
    */
   new PureCounter();
+
+  let fractalAnimId = null;
+  let hue = 0;
+
+  function drawFractalTree(ctx, x, y, length, angle, depth, branchWidth, colorHue) {
+    if (depth === 0) return;
+
+    ctx.beginPath();
+    ctx.save();
+    ctx.strokeStyle = `hsl(${colorHue}, 60%, 70%)`;
+    ctx.lineWidth = branchWidth;
+    ctx.translate(x, y);
+    ctx.rotate(angle * Math.PI / 180);
+    ctx.moveTo(0, 0);
+    ctx.lineTo(0, -length);
+    ctx.stroke();
+
+    const newLength = length * 0.75;
+    const newWidth = branchWidth * 0.7;
+    drawFractalTree(ctx, 0, -length, newLength, angle - 8, depth - 1, newWidth, colorHue + 5);
+    drawFractalTree(ctx, 0, -length, newLength, angle + 13, depth - 1, newWidth, colorHue + 10);
+    drawFractalTree(ctx, 0, -length, newLength, angle + 25, depth - 1, newWidth, colorHue + 15);
+
+    ctx.restore();
+  }
+
+  function initFractalCanvas() {
+    const canvas = document.getElementById("fractal-canvas");
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+
+    const resize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+    resize();
+    window.addEventListener("resize", resize);
+
+    let frameCount = 0;
+
+    function animateColor() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Dynamically calculate trunk height = 30%–40% of screen
+      const baseLength = canvas.height * 0.27;
+
+      const isMobile = window.innerWidth <= 991;
+      const baseX = isMobile ? canvas.width / 2 : canvas.width * 0.75;
+      const trunkHeight = isMobile ? canvas.height * 0.25 : baseLength;
+      const treeDepth = 9;
+
+      drawFractalTree(
+        ctx,
+        baseX,
+        canvas.height,
+        trunkHeight,
+        0,
+        treeDepth,
+        17,
+        hue
+      );
+
+      if (frameCount++ % 5 === 0) {
+        hue = (hue + 1) % 360;
+      }
+
+      fractalAnimId = requestAnimationFrame(animateColor);
+    }
+
+    animateColor();
+  }
+
+  function stopFractalCanvas() {
+    cancelAnimationFrame(fractalAnimId);
+    const canvas = document.getElementById("fractal-canvas");
+    if (canvas) {
+      const ctx = canvas.getContext("2d");
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+  }
+
+
+  initFractalCanvas();
 
 })()
