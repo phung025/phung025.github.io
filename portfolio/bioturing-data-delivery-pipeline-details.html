@@ -1,120 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <title>Nam Phung</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-
-  <!-- Favicons -->
-  <link href="../assets/img/favicon.png" rel="icon">
-  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-  <!-- Template Main CSS File -->
+  <title>Nam Phung - Project Details</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..800&display=swap" rel="stylesheet">
   <link href="../assets/css/style.css" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: Personal
-  * Template URL: https://bootstrapmade.com/personal-free-resume-bootstrap-template/
-  * Updated: Mar 17 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
-
 <body>
 
-  <main id="main">
+  <site-header active="portfolio" root="../"></site-header>
 
-    <!-- ======= Portfolio Details ======= -->
-    <div id="portfolio-details" class="portfolio-details">
-      <div class="container">
+  <div class="container terminal-transition">
 
-        <div class="row">
+    <div style="margin-bottom: 20px;">
+      <a href="../portfolio.html" style="font-size: 13px; font-weight: bold;">← BACK TO PORTFOLIO</a>
+    </div>
 
-          <div class="col-lg-8">
-            <h2 class="portfolio-title">BioTuring Data Delivery Pipeline</h2>
+    <div class="panel">
+      <div class="panel-title">PROJECT SPECIFICATIONS</div>
 
-            <div class="portfolio-details-slider swiper">
-              <div class="swiper-wrapper align-items-center">
+      <div class="grid-2">
+        <div>
+          <h2 style="font-size: 16px; margin-top: 0; line-height: 1.4; color: #1c1917;">
+            BioTuring Internal Automated Data Delivery Pipeline
+          </h2>
+          <div style="border: 1px solid #e5e7eb; padding: 10px; background-color: #ffffff; margin-top: 15px; text-align: center;">
+            <img src="../assets/img/portfolio/data_delivery_pipeline.png" alt="Data Delivery Pipeline Flow Diagram" style="max-width: 100%; height: auto;">
+          </div>
+        </div>
 
-                <div class="swiper-slide">
-                  <img src="../assets/img/portfolio/data_delivery_pipeline.png" alt="" style="max-width: 850px;">
-                </div>
-
-              </div>
-              <div class="swiper-pagination"></div>
-            </div>
-
+        <div>
+          <div style="border-bottom: 1px dashed #e5e7eb; padding-bottom: 15px; margin-bottom: 15px;">
+            <div class="data-row"><span class="data-label">PROJECT TYPE</span><span class="data-value">DEVOPS / INFRASTRUCTURE</span></div>
+            <div class="data-row"><span class="data-label">COMPANY</span><span class="data-value">BIOTURING INC.</span></div>
+            <div class="data-row"><span class="data-label">PLATFORM URL</span><span class="data-value"><a href="https://bioturing.com/" target="_blank">BIOTURING.COM</a></span></div>
+            <div class="data-row"><span class="data-label">TIMELINE</span><span class="data-value">12/2021 - 02/2022</span></div>
           </div>
 
-          <div class="col-lg-4 portfolio-info">
-            <h3>Project information</h3>
-            <ul>
-              <li><strong>Category</strong>: Backend service</li>
-              <li><strong>Location</strong>: <em>BioTuring | Vietnam</em></li>
-              <li><strong>URL</strong>: <a href="https://bioturing.com/" target="_blank">https://bioturing.com/</a></li>
-              <li><h5>12/2021 - 02/2022</h5></li>
-            </ul>
+          <h3 style="font-size: 12px; color: #71717a; margin-bottom: 10px;">OVERVIEW</h3>
+          <p style="text-transform: none; font-size: 13px; line-height: 1.6; margin: 0 0 25px 0;">
+            The BioTuring Data Delivery Pipeline is an automated ETL and publishing framework engineered to streamline how internal data science teams catalog and release curated biological datasets. Managed directly via an administrator control interface, this data pipeline handles high-volume publish operations by converting manual delivery steps into robust, decoupled automated sequences.
+            <br><br>
+            When an administrator initiates a data release request, the metadata and binaries are processed through a centralized task queue. A managed task coordinator orchestrates distribution out to isolated data workers. Each operational worker processes the complex data packages safely, writing core large-scale single-cell asset streams to Amazon S3 cloud object storage, registering indexed records in MongoDB, and generating persistence audit tracks inside a relational MySQL instance.
+          </p>
 
-            <p>
-              BioTuring data delivery pipeline is <highlight>used by BioTuring's data science team to publish the curated data to the public database</highlight> for BBrowser's users to download. The pipeline takes data release request from the data adminsitrator through the interface on BBrowser. The request is pushed to a delivery task queue where the task manager will distribute the requests to the workers. Each worker processes one request & releases the data to Amazon S3, metadata to MongoDB, and logs the result to MySQL DB.
-            </p>
+          <h3 style="font-size: 12px; color: #71717a; margin-bottom: 15px;">CORE ENGINEERING CONTRIBUTIONS</h3>
 
-            <h3>My Contributions</h3>
-            <div id="resume" class="resume">
-              <div class="resume-item">
-                <h4>BioTuring Data Delivery Pipeline</h4>
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> Built the pipeline's architecture, API server, and the interface for users to interact with.</li>
-                  <li><i class="bi bi-chevron-right"></i> Maintained the pipeline & fixed existing bugs.</li>
-                </ul>
-              </div>
+          <div style="display: flex; flex-direction: column; gap: 20px;">
+            <div>
+              <h4 style="font-size: 13px; margin: 0 0 5px 0; color: #1c1917;">ETL Pipeline & API Design</h4>
+              <p style="text-transform: none; font-size: 12px; line-height: 1.5; color: #4b5563; margin: 0;">
+                Architected the core end-to-end data processing flow and structured API backend services from scratch. Developed secure, resilient programmatic ingestion endpoints to capture multi-attribute dataset attributes (titles, study abstracts, experimental sequencing technologies) cleanly and safely.
+              </p>
             </div>
 
+            <div>
+              <h4 style="font-size: 13px; margin: 0 0 5px 0; color: #1c1917;">Distributed Storage & Database Orchestration</h4>
+              <p style="text-transform: none; font-size: 12px; line-height: 1.5; color: #4b5563; margin: 0;">
+                Implemented multi-tier transaction mappings across disparate database technologies. Engineered worker nodes to simultaneously pipe massive compressed binary biological payload configurations to Amazon S3 cloud buckets while documenting non-relational document indexing properties inside MongoDB.
+              </p>
+            </div>
+
+            <div>
+              <h4 style="font-size: 13px; margin: 0 0 5px 0; color: #1c1917;">Administrative Management Interface</h4>
+              <p style="text-transform: none; font-size: 12px; line-height: 1.5; color: #4b5563; margin: 0;">
+                Built a clean, highly reliable web application dashboard panel specifically for the internal data engineering team. This unified management console gives administrators real-time tracking transparency into pending releases, system execution state, and data worker availability.
+              </p>
+            </div>
+
+            <div>
+              <h4 style="font-size: 13px; margin: 0 0 5px 0; color: #1c1917;">Audit Auditing & Failure Resilience</h4>
+              <p style="text-transform: none; font-size: 12px; line-height: 1.5; color: #4b5563; margin: 0;">
+                Integrated structured logging architectures using MySQL databases to maintain strict operational integrity across public releases. Programmed smart retry logic and state machine isolation parameters to elegantly handle network disruptions and unblock stuck queues without experiencing data corruption.
+              </p>
+            </div>
           </div>
 
         </div>
-
       </div>
-    </div><!-- End Portfolio Details -->
 
-  </main><!-- End #main -->
-
-  <div class="credits">
-    <!-- All the links in the footer should remain intact. -->
-    <!-- You can delete the links only if you purchased the pro version. -->
-    <!-- Licensing information: https://bootstrapmade.com/license/ -->
-    <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/personal-free-resume-bootstrap-template/ -->
-    Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+    </div>
   </div>
 
-  <!-- Vendor JS Files -->
-  <script src="../assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="../assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="../assets/vendor/php-email-form/validate.js"></script>
-
-  <!-- Template Main JS File -->
   <script src="../assets/js/main.js"></script>
-
 </body>
-
 </html>

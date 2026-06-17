@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Nam Phung - Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..800&display=swap" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <site-header active="resume"></site-header>
+
+  <div class="container terminal-transition">
+    <div class="panel">
+      <div class="panel-title" style="display: flex; justify-content: space-between; align-items: center;">
+        <span>PROFESSIONAL EXPERIENCE</span>
+        <a href="https://drive.google.com/file/d/1s-j1i58wHNmR1tfxhhQSUeD8d8lFUyGx/view" target="_blank" style="color: #2563eb; font-size: 11px;">[ DOWNLOAD PDF RESUME ]</a>
+      </div>
+
+      <!-- Experience Item 1 -->
+      <div class="log-entry">
+        <div class="log-header">
+          <span class="log-title">UNIVERSITY OF MINNESOTA DULUTH // Graduate Teaching Assistant</span>
+          <span class="log-date">08/2022 - 04/2024</span>
+        </div>
+        <div class="log-body" style="text-transform: none;">
+          Taught labs on machine learning, data structures & algorithms, and C++ programming. Graded assignments and provided guidance during weekly office hours.
+        </div>
+      </div>
+
+      <!-- Experience Item 2 -->
+      <div class="log-entry">
+        <div class="log-header">
+          <span class="log-title">BIOTURING INC. // Full Stack Developer</span>
+          <span class="log-date">03/2020 - 07/2022</span>
+        </div>
+        <div class="log-body" style="text-transform: none;">
+          Developed API endpoints and backend architecture using FastAPI to facilitate biological dataset discovery and visualization in BBrowser—a software platform enabling researchers to analyze single-cell omics data.
+        </div>
+        <details>
+          <summary>▶ KEY METRICS & IMPACT</summary>
+          <div class="details-content" style="text-transform: none;">
+            • Increased monthly utilization of the core scientific plotting features by <span class="status-green">50%</span> over two quarters through targeted performance optimizations.<br>
+            • Engineered an internal ETL pipeline using Python and AWS, reducing manual data curation overhead by <span class="status-green">40%</span> via automation.<br>
+            • Improved engineering velocity by <span class="status-green">20%</span> by designing a custom wrapper utility for Python’s native concurrency and multiprocessing libraries.
+          </div>
+        </details>
+        <details>
+          <summary>▶ TECHNICAL IMPLEMENTATION</summary>
+          <div class="details-content" style="text-transform: none;">
+            • Utilized ggplot2 and ComplexHeatMap libraries to build clean data visualization tools for scRNA-seq analysis in BBrowser.<br>
+            • Developed an internal asynchronous server module for task scheduling and workload parallelization across BBrowser and the BioTuring Enterprise Server Platform (BESP).<br>
+            • Researched and optimized a low-latency cell type search algorithm querying a database of over 16 million cell profiles, directly supporting successful commercial licensing agreements.
+          </div>
+        </details>
+      </div>
+
+      <!-- Experience Item 3 -->
+      <div class="log-entry">
+        <div class="log-header">
+          <span class="log-title">VIETNAM COMMUNICATIONS CORPORATION // Machine Learning Engineer</span>
+          <span class="log-date">12/2019 - 03/2020</span>
+        </div>
+        <div class="log-body" style="text-transform: none;">
+          Developed internal distributed systems using Python to evaluate, benchmark, and deploy machine learning and deep learning models.
+        </div>
+        <details>
+          <summary>▶ SYSTEM PERFORMANCE</summary>
+          <div class="details-content" style="text-transform: none;">
+            • Built data pipelines handling 80,000 video records daily for the Lotus social network, achieving a <span class="status-green">30% improvement</span> in processing throughput.<br>
+            • Created production-ready, high-performance API endpoints using FastAPI for internal machine learning analytics services.
+          </div>
+        </details>
+      </div>
+
+      <!-- Sub-grid: Education and Skills -->
+      <div class="grid-2" style="margin-top: 30px; gap: 20px;">
+        <div>
+          <div class="panel-title">EDUCATION</div>
+          <div class="data-row">
+            <span class="data-label">M.S. COMPUTER SCIENCE (GPA 4.0)</span>
+            <span class="data-value">UNIVERSITY OF MINNESOTA DULUTH [2022-2024]</span>
+          </div>
+          <p style="font-size: 11px; color:#71717a; text-transform:none; margin:-5px 0 15px 0;">Thesis: Predictive In-memory Multi-Level Indexing Algorithm for Spatiotemporal Trajectory Streams in Distributed Environments.</p>
+
+          <div class="data-row">
+            <span class="data-label">B.S. CS & STATISTICS (GPA 3.77)</span>
+            <span class="data-value">UNIVERSITY OF MINNESOTA DULUTH [2015-2019]</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="panel-title">TECHNICAL SKILLS</div>
+          <div class="data-row"><span class="data-label">LANGUAGES</span><span class="data-value">PYTHON, JS, TS, R, C++, JAVA, SCALA</span></div>
+          <div class="data-row"><span class="data-label">FRAMEWORKS</span><span class="data-value">NODE.JS, ELECTRON, FASTAPI, TENSORFLOW, PYTORCH</span></div>
+          <div class="data-row"><span class="data-label">DATABASES</span><span class="data-value">MYSQL, MONGODB, SQLITE, POSTGRESQL</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

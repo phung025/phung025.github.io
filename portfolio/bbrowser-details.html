@@ -1,175 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <title>Nam Phung</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-
-  <!-- Favicons -->
-  <link href="../assets/img/favicon.png" rel="icon">
-  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-  <!-- Template Main CSS File -->
+  <title>Nam Phung - Project Details</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..800&display=swap" rel="stylesheet">
   <link href="../assets/css/style.css" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: Personal
-  * Template URL: https://bootstrapmade.com/personal-free-resume-bootstrap-template/
-  * Updated: Mar 17 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
-
 <body>
 
-  <main id="main">
+  <site-header active="portfolio" root="../"></site-header>
 
-    <!-- ======= Portfolio Details ======= -->
-    <div id="portfolio-details" class="portfolio-details">
-      <div class="container">
+  <div class="container terminal-transition">
 
-        <div class="row">
+    <div style="margin-bottom: 20px;">
+      <a href="../portfolio.html" style="font-size: 13px; font-weight: bold;">← BACK TO PORTFOLIO</a>
+    </div>
 
-          <div class="col-lg-8">
-            <h2 class="portfolio-title">BioTuring Browser</h2>
+    <div class="panel">
+      <div class="panel-title">PROJECT SPECIFICATIONS</div>
 
-            <div class="portfolio-details-slider swiper">
-              <div class="swiper-wrapper align-items-center">
+      <div class="grid-2">
+        <div>
+          <h2 style="font-size: 16px; margin-top: 0; line-height: 1.4; color: #1c1917;">
+            BioTuring Browser (BBrowser) — Single-Cell Omics Platform
+          </h2>
 
-                <div class="swiper-slide">
-                  <img src="../assets/img/portfolio/bbrowser_intro.png" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="../assets/img/portfolio/bbrowser_subcluster.png" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="../assets/img/portfolio/bbrowser_de_analysis.png" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="../assets/img/portfolio/bbrowser_query_gene_expression.png" alt="">
-                </div>
-
-              </div>
-              <div class="swiper-pagination"></div>
+          <div style="display: flex; flex-direction: column; gap: 15px; margin-top: 15px;">
+            <div style="border: 1px solid #e5e7eb; padding: 10px; background-color: #ffffff; text-align: center;">
+              <img src="../assets/img/portfolio/bbrowser_intro.png" alt="BBrowser Introduction Interface" style="max-width: 100%; height: auto;">
             </div>
-
-          </div>
-
-          <div class="col-lg-4 portfolio-info">
-            <h3>Project information</h3>
-            <ul>
-              <li><strong>Category</strong>: Desktop software</li>
-              <li><strong>Location</strong>: <em>BioTuring | Vietnam</em></li>
-              <li><strong>URL</strong>: <a href="https://bioturing.com/" target="_blank">https://bioturing.com/</a></li>
-              <li><h5>03/2020 - 07/2022</h5></li>
-            </ul>
-
-            <p>
-              BioTuring’s BBrowser is a software solution that helps scientists effectively analyze single-cell omics data. It combines big data with big computation and modern data visualization to create a unique platform where scientists can interact and obtain important biological insights from the massive amounts of single-cell data. BBrowser has three main components: a curated single-cell database, a big-data analytics layer, and a data visualization module.
-            </p>
-
-            <h3>My Contributions</h3>
-            <div id="resume" class="resume">
-              <div class="resume-item">
-                <h4>Gene differential expression analysis</h4>
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <highlight>Implementead a new interface for the gene differential expression (DE) analysis</highlight>.</li>
-                  <li><i class="bi bi-chevron-right"></i> <highlight>Implemented the statistical tests e.g. t-Test, Wilcoxon, ANOVA</highlight> running in R backend service.</li>
-                  <li><i class="bi bi-chevron-right"></i> <highlight>Optimized DE process</highlight> to reduce analysis execution time.</li>
-                </ul>
-              </div>
-
-              <div class="resume-item">
-                <h4>Scientific plotting</h4>
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> Implemented <highlight>new feature expression heatmap that supports visualizing up to millions of cells in a single heatmap</highlight>. Switched from Seurat heatmap to ComplexHeatMap package in R.</li>
-                  <li><i class="bi bi-chevron-right"></i> <highlight>Built a custom feature heatmap function</highlight> using ComplexHeatMap package.</li>
-                  <li><i class="bi bi-chevron-right"></i> Implemented <highlight>new violin plot feature</highlight> that support visualizing multi genes and multi annotations.</li>
-                  <li><i class="bi bi-chevron-right"></i> <highlight>Improved scatter plot feature</highlight> by including annotation feature, gene expression coloring, etc.</li>
-                </ul>
-              </div>
-
-              <div class="resume-item">
-                <h4>Internal data delivery pipeline</h4>
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <highlight>Implemented the interface for the internal data delivery pipeline</highlight>.</li>
-                  <li><i class="bi bi-chevron-right"></i> The interface is <highlight>used internally by BioTuring's data science team to release/update data</highlight> to the public database.</li>
-                  <li><i class="bi bi-chevron-right"></i> The interface talks to the backend service which <highlight>allows users to schedule a data delivery task</highlight>; <highlight>Creating new data entry</highlight> e.g. Title, abstract, technology, etc & <highlight>pushes the entry to a MongoDB and the data object to a Amazon S3</highlight>.</li>
-                </ul>
-              </div>
-
-              <div class="resume-item">
-                <h4>Database search & overview</h4>
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <highlight>Implemented a search filter feature for BioTuring database</highlight>. The feature allows users to <highlight>filter the data by BioTuring curated cell types, annotations, technology, and keywords</highlight>.</li>
-                  <li><i class="bi bi-chevron-right"></i> <highlight>Implemented a feature to summarize the data through visualizing the cell type data</highlight> using bar plot, sunburst plot. The feature displays the number of cell types and the components of each cell class before requiring the users to download the data.</li>
-                </ul>
-              </div>
-
-              <div class="resume-item">
-                <h4>Cell search feature</h4>
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <highlight>Implemented a new interface for cell search feature</highlight> which displays the cell ontology, data's cell composition, etc.</li>
-                  <li><i class="bi bi-chevron-right"></i> <highlight>Implemented a cell ontology visualization feature</highlight>. This displays a tree-like structure, which tells the relationship of the cell type (parent cell, children cells).</li>
-                </ul>
-              </div>
-
-              <div class="resume-item">
-                <h4>Maintained legacy code</h4>
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> Maintained legacy JavaScript, R, and Python code written for both frontend and backend.</li>
-                </ul>
-              </div>
+            <div style="border: 1px solid #e5e7eb; padding: 10px; background-color: #ffffff; text-align: center;">
+              <img src="../assets/img/portfolio/bbrowser_subcluster.png" alt="BBrowser Subcluster Analysis" style="max-width: 100%; height: auto;">
             </div>
-
+            <div style="border: 1px solid #e5e7eb; padding: 10px; background-color: #ffffff; text-align: center;">
+              <img src="../assets/img/portfolio/bbrowser_de_analysis.png" alt="Differential Expression Engine" style="max-width: 100%; height: auto;">
+            </div>
+            <div style="border: 1px solid #e5e7eb; padding: 10px; background-color: #ffffff; text-align: center;">
+              <img src="../assets/img/portfolio/bbrowser_query_gene_expression.png" alt="Gene Expression Query Module" style="max-width: 100%; height: auto;">
+            </div>
           </div>
-
         </div>
 
-      </div>
-    </div><!-- End Portfolio Details -->
+        <div>
+          <div style="border-bottom: 1px dashed #e5e7eb; padding-bottom: 15px; margin-bottom: 15px;">
+            <div class="data-row"><span class="data-label">PROJECT TYPE</span><span class="data-value">DESKTOP SOFTWARE</span></div>
+            <div class="data-row"><span class="data-label">COMPANY</span><span class="data-value">BIOTURING INC.</span></div>
+            <div class="data-row"><span class="data-label">PLATFORM URL</span><span class="data-value"><a href="https://bioturing.com/" target="_blank">BIOTURING.COM</a></span></div>
+            <div class="data-row"><span class="data-label">TIMELINE</span><span class="data-value">03/2020 - 07/2022</span></div>
+          </div>
 
-  </main><!-- End #main -->
+          <h3 style="font-size: 12px; color: #71717a; margin-bottom: 10px;">OVERVIEW</h3>
+          <p style="text-transform: none; font-size: 13px; line-height: 1.6; margin: 0 0 25px 0;">
+            BioTuring BBrowser is an advanced analytics platform engineered to accelerate single-cell omics research. By combining large-scale biological datasets with high-performance computation and rich interactive visualization modules, the system enables scientists to efficiently query and unlock critical diagnostic patterns across complex cellular datasets.
+          </p>
 
-  <div class="credits">
-    <!-- All the links in the footer should remain intact. -->
-    <!-- You can delete the links only if you purchased the pro version. -->
-    <!-- Licensing information: https://bootstrapmade.com/license/ -->
-    <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/personal-free-resume-bootstrap-template/ -->
-    Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-  </div>
+          <h3 style="font-size: 12px; color: #71717a; margin-bottom: 15px;">CORE ENGINEERING CONTRIBUTIONS</h3>
 
-  <!-- Vendor JS Files -->
-  <script src="../assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="../assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="../assets/vendor/php-email-form/validate.js"></script>
+          <div style="display: flex; flex-direction: column; gap: 20px;">
+            <div>
+              <h4 style="font-size: 13px; margin: 0 0 5px 0; color: #1c1917;">Differential Expression (DE) Analysis Engine</h4>
+              <p style="text-transform: none; font-size: 12px; line-height: 1.5; color: #4b5563; margin: 0;">
+                Designed and built a modern intuitive workspace interface for downstream cellular evaluation. Implemented underlying statistical testing routines (including t-Tests, Wilcoxon rank-sum, and ANOVA frameworks) within the backend R services, significantly optimizing processing paths to reduce end-to-end execution times.
+              </p>
+            </div>
 
-  <!-- Template Main JS File -->
-  <script src="../assets/js/main.js"></script>
+            <div>
+              <h4 style="font-size: 13px; margin: 0 0 5px 0; color: #1c1917;">Scientific Visualization Architecture</h4>
+              <p style="text-transform: none; font-size: 12px; line-height: 1.5; color: #4b5563; margin: 0;">
+                Engineered multi-million cell rendering architectures by successfully migrating standard matrix modules to high-density ComplexHeatMap engines. Created bespoke multi-gene violin plotting structures and upgraded underlying spatial scatter plotting capabilities to cleanly render rich metadata layers and gene-expression color maps.
+              </p>
+            </div>
 
-</body>
+            <div>
+              <h4 style="font-size: 13px; margin: 0 0 5px 0; color: #1c1917;">Internal Automated Ingestion Pipelines</h4>
+              <p style="text-transform: none; font-size: 12px; line-height: 1.5; color: #4b5563; margin: 0;">
+                Architected automation management interfaces utilized by internal data engineering teams to safely catalog, schedule, and distribute new dataset additions. Integrated control endpoints to register asset metadata within MongoDB instances while uploading target structural binary files smoothly into remote Amazon S3 cloud storage buckets.
+              </p>
+            </div>
 
-</html>
+            <div>
+              <h4 style="font-size: 13px; margin: 0 0 5px 0; color: #1c1917;">Multi-Attribute Database Discovery</h4>
+              <p style="text-transform: none; font-size: 12px; line-height: 1.5; color: #4b5563; margin: 0;">
+                Developed flexible faceted database filtering structures, enabling immediate text and taxonomy matching across curated cell types, target technologies, and study keywords. Added visual summary profiles (sunburst paths and detailed bar metrics) to instantly present data structures before prompting storage downloads.
+              </p>
+            </div>
+
+            <div>
+              <h4 style="font-size: 13px; margin: 0 0 5px 0; color: #1c1917;">Ontology Lineage Visualization</h4>
+              <p style="text-transform: none; font-size: 12px; line-height: 1.5; color: #4b5563; margin: 0;">
+                Created a dedicated tree navigation framework for biological cell classification. The reactive interface maps cellular ontology strings into direct visual hierarchies, making parental and downstream descendant cell lineages instantly scannable for laboratory researchers.
+              </p>
+            </div>
+
+            <div>
+              <h4 style="font-size: 13px; margin: 0 0 5px 0; color: #1c1917;">System Maintenance & Refactoring</h4>

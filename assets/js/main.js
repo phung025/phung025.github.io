@@ -1,17 +1,101 @@
 /**
-* Template Name: Personal
-* Template URL: https://bootstrapmade.com/personal-free-resume-bootstrap-template/
-* Updated: Mar 17 2024 with Bootstrap v5.3.3
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
+* Nam Phung - Portfolio Main JS
+* Custom implementation with Web Components for reusability
 */
 
 (function() {
   "use strict";
 
   /**
-   * Easy selector helper function
+   * SiteHeader Web Component
+   * Handles the Canvas, Navbar, and Ticker across all pages
    */
+  class SiteHeader extends HTMLElement {
+    connectedCallback() {
+      const active = this.getAttribute('active') || '';
+      const root = this.getAttribute('root') || '';
+      
+      this.innerHTML = `
+        <canvas id="fractal-canvas" style="position: fixed; top:0; left:0; width:100vw; height:100vh; z-index:-1; opacity:0.15; pointer-events:none;"></canvas>
+        <div class="navbar">
+          <div class="navbar-brand">NAM PHUNG</div>
+          <button class="mobile-nav-toggle">☰</button>
+          <div class="nav-links">
+            <a href="${root}index.html" class="${active === 'home' ? 'active' : ''}">HOME</a>
+            <span>|</span>
+            <a href="${root}resume.html" class="${active === 'resume' ? 'active' : ''}">RESUME</a>
+            <span>|</span>
+            <a href="${root}portfolio.html" class="${active === 'portfolio' ? 'active' : ''}">PORTFOLIO</a>
+            <span>|</span>
+            <a href="${root}publications.html" class="${active === 'publications' ? 'active' : ''}">PUBLICATIONS</a>
+            <span>|</span>
+            <a href="https://www.linkedin.com/in/namphung/" target="_blank">LINKEDIN</a>
+            <span>|</span>
+            <a href="https://github.com/phung025/" target="_blank">GITHUB</a>
+          </div>
+        </div>
+        <div class="ticker">
+          <span></span>
+        </div>
+      `;
+
+      // Re-initialize fractal tree and mobile toggle after injection
+      initFractalCanvas();
+      setupMobileToggle(this);
+    }
+  }
+
+  // Define the custom element before any other logic
+  if (!customElements.get('site-header')) {
+    customElements.define('site-header', SiteHeader);
+  }
+
+  /**
+   * ChessGame Web Component - Eight Queens Solution Display
+   */
+  class ChessGame extends HTMLElement {
+    connectedCallback() {
+      this.innerHTML = `
+        <div class="chess-container">
+          <div class="chess-board" id="board"></div>
+        </div>
+      `;
+      this.render();
+    }
+
+    render() {
+      const boardEl = this.querySelector('#board');
+      boardEl.innerHTML = '';
+      
+      // One valid 8-Queens solution
+      const solution = [3, 6, 2, 7, 1, 4, 0, 5]; // Column index for each row
+
+      for (let r = 0; r < 8; r++) {
+        for (let c = 0; c < 8; c++) {
+          const square = document.createElement('div');
+          square.className = `chess-square ${(r + c) % 2 === 0 ? 'light' : 'dark'}`;
+          
+          if (solution[r] === c) {
+            const pieceEl = document.createElement('div');
+            pieceEl.className = 'chess-piece';
+            // Fluid font size: 8% of board width, capped at 40px
+            pieceEl.style.fontSize = 'min(40px, 8.5vw)'; 
+            pieceEl.style.color = r % 2 === 0 ? '#7a0019' : '#d4a316'; 
+            pieceEl.style.display = 'flex';
+            pieceEl.style.justifyContent = 'center';
+            pieceEl.style.alignItems = 'center';
+            pieceEl.textContent = '♛';
+            square.appendChild(pieceEl);
+          }
+          boardEl.appendChild(square);
+        }
+      }
+    }
+  }
+
+  if (!customElements.get('chess-game')) {
+    customElements.define('chess-game', ChessGame);
+  }
   const select = (el, all = false) => {
     el = el.trim()
     if (all) {
@@ -35,166 +119,6 @@
       }
     }
   }
-
-  /**
-   * Scrolls to an element with header offset
-   */
-  const scrollto = (el) => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    })
-  }
-
-  /**
-   * Mobile nav toggle
-   */
-  on('click', '.mobile-nav-toggle', function(e) {
-    select('#navbar').classList.toggle('navbar-mobile')
-    this.classList.toggle('bi-list')
-    this.classList.toggle('bi-x')
-  })
-
-  /**
-   * Scrool with ofset on links with a class name .scrollto
-   */
-  on('click', '#navbar .nav-link', function(e) {
-    let section = select(this.hash)
-    if (section) {
-      e.preventDefault()
-
-      let navbar = select('#navbar')
-      let header = select('#header')
-      let sections = select('section', true)
-      let navlinks = select('#navbar .nav-link', true)
-
-      // Hide the small tag on clicking any navbar item
-      const smallTag = select('.intro small');
-      if (smallTag && this.hash !== '#header') {
-        smallTag.style.display = 'none';  // Hide the small tag
-      }
-
-      navlinks.forEach((item) => {
-        item.classList.remove('active')
-      })
-
-      this.classList.add('active')
-
-      if (navbar.classList.contains('navbar-mobile')) {
-        navbar.classList.remove('navbar-mobile')
-        let navbarToggle = select('.mobile-nav-toggle')
-        navbarToggle.classList.toggle('bi-list')
-        navbarToggle.classList.toggle('bi-x')
-      }
-
-      if (this.hash == '#header') {
-        header.classList.remove('header-top')
-        sections.forEach((item) => {
-          item.classList.remove('section-show')
-        })
-        if (smallTag) {
-          smallTag.style.display = 'inline';
-        }
-        initFractalCanvas();
-        return;
-      } else {
-        stopFractalCanvas();
-      }
-
-      if (!header.classList.contains('header-top')) {
-        header.classList.add('header-top')
-        setTimeout(function() {
-          sections.forEach((item) => {
-            item.classList.remove('section-show')
-          })
-          section.classList.add('section-show')
-
-        }, 350);
-      } else {
-        sections.forEach((item) => {
-          item.classList.remove('section-show')
-        })
-        section.classList.add('section-show')
-      }
-
-      scrollto(this.hash)
-    }
-  }, true)
-
-  /**
-   * Activate/show sections on load with hash links
-   */
-  window.addEventListener('load', () => {
-    if (window.location.hash) {
-      let initial_nav = select(window.location.hash)
-      if (initial_nav) {
-        let header = select('#header')
-        let navlinks = select('#navbar .nav-link', true)
-
-        header.classList.add('header-top')
-
-        navlinks.forEach((item) => {
-          if (item.getAttribute('href') == window.location.hash) {
-            item.classList.add('active')
-          } else {
-            item.classList.remove('active')
-          }
-        })
-
-        setTimeout(function() {
-          initial_nav.classList.add('section-show')
-        }, 350);
-
-        scrollto(window.location.hash)
-      }
-    }
-  });
-
-  /**
-   * Skills animation
-   */
-  let skilsContent = select('.skills-content');
-  if (skilsContent) {
-    new Waypoint({
-      element: skilsContent,
-      offset: '80%',
-      handler: function(direction) {
-        let progress = select('.progress .progress-bar', true);
-        progress.forEach((el) => {
-          el.style.width = el.getAttribute('aria-valuenow') + '%'
-        });
-      }
-    })
-  }
-
-  /**
-   * Testimonials slider
-   */
-  new Swiper('.testimonials-slider', {
-    speed: 600,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    slidesPerView: 'auto',
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    },
-    breakpoints: {
-      320: {
-        slidesPerView: 1,
-        spaceBetween: 20
-      },
-
-      1200: {
-        slidesPerView: 3,
-        spaceBetween: 20
-      }
-    }
-  });
 
   /**
    * Porfolio isotope and filter
@@ -221,70 +145,112 @@
         });
       }, true);
     }
-
   });
 
   /**
    * Initiate portfolio lightbox
    */
-  const portfolioLightbox = GLightbox({
-    selector: '.portfolio-lightbox'
-  });
+  if (typeof GLightbox !== 'undefined') {
+    GLightbox({
+      selector: '.portfolio-lightbox'
+    });
 
-  /**
-   * Initiate portfolio details lightbox
-   */
-  const portfolioDetailsLightbox = GLightbox({
-    selector: '.portfolio-details-lightbox',
-    width: '90%',
-    height: '90vh'
-  });
+    GLightbox({
+      selector: '.portfolio-details-lightbox',
+      width: '90%',
+      height: '90vh'
+    });
+  }
 
   /**
    * Portfolio details slider
    */
-  new Swiper('.portfolio-details-slider', {
-    speed: 400,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    }
-  });
+  if (select('.portfolio-details-slider')) {
+    new Swiper('.portfolio-details-slider', {
+      speed: 400,
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+        clickable: true
+      }
+    });
+  }
 
   /**
-   * Initiate Pure Counter
+   * Neural Network / Universe Background
    */
-  new PureCounter();
+  function drawNeuralNetwork(ctx, width, height) {
+    ctx.clearRect(0, 0, width, height);
+    
+    const isMobile = window.innerWidth <= 991;
+    // High density node count
+    const nodeCount = isMobile ? 150 : 350; 
+    const connectionDist = isMobile ? 100 : 180;
+    const nodes = [];
+    
+    const umnMaroon = '#7a0019';
+    const umnGold = '#ffcc33';
+    const palette = [umnMaroon, umnGold];
 
-  let fractalAnimId = null;
-  let hue = 0;
+    // Generate random nodes
+    for (let i = 0; i < nodeCount; i++) {
+      nodes.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        size: Math.random() * (isMobile ? 2 : 3.5) + 1,
+        color: palette[Math.floor(Math.random() * palette.length)]
+      });
+    }
 
-  function drawFractalTree(ctx, x, y, length, angle, depth, branchWidth, colorHue) {
-    if (depth === 0) return;
+    // Draw connections (edges)
+    for (let i = 0; i < nodes.length; i++) {
+      for (let j = i + 1; j < nodes.length; j++) {
+        const dx = nodes[i].x - nodes[j].x;
+        const dy = nodes[i].y - nodes[j].y;
+        const distSq = dx * dx + dy * dy;
 
-    ctx.beginPath();
-    ctx.save();
-    ctx.strokeStyle = `hsl(${colorHue}, 60%, 70%)`;
-    ctx.lineWidth = branchWidth;
-    ctx.translate(x, y);
-    ctx.rotate(angle * Math.PI / 180);
-    ctx.moveTo(0, 0);
-    ctx.lineTo(0, -length);
-    ctx.stroke();
+        if (distSq < connectionDist * connectionDist) {
+          const dist = Math.sqrt(distSq);
+          ctx.beginPath();
+          ctx.moveTo(nodes[i].x, nodes[i].y);
+          ctx.lineTo(nodes[j].x, nodes[j].y);
+          
+          // High-vibrance alpha
+          const alpha = 1 - (dist / connectionDist);
+          ctx.globalAlpha = alpha * 0.6; // Significantly more vibrant
+          ctx.lineWidth = 1.5; // Sharper, thicker lines
+          
+          ctx.strokeStyle = Math.random() > 0.5 ? umnMaroon : umnGold;
+          ctx.stroke();
+        }
+      }
+    }
 
-    const newLength = length * 0.75;
-    const newWidth = branchWidth * 0.7;
-    drawFractalTree(ctx, 0, -length, newLength, angle - 8, depth - 1, newWidth, colorHue + 5);
-    drawFractalTree(ctx, 0, -length, newLength, angle + 13, depth - 1, newWidth, colorHue + 10);
-    drawFractalTree(ctx, 0, -length, newLength, angle + 25, depth - 1, newWidth, colorHue + 15);
+    // Draw nodes
+    for (let i = 0; i < nodes.length; i++) {
+      const node = nodes[i];
+      
+      // Intense glow
+      ctx.globalAlpha = 0.25;
+      ctx.beginPath();
+      ctx.arc(node.x, node.y, node.size * 2.5, 0, Math.PI * 2);
+      ctx.fillStyle = node.color;
+      ctx.fill();
 
-    ctx.restore();
+      // Opaque, sharp core
+      ctx.globalAlpha = 1.0; // Max vibrance
+      ctx.beginPath();
+      ctx.arc(node.x, node.y, node.size, 0, Math.PI * 2);
+      ctx.fillStyle = node.color;
+      ctx.fill();
+    }
+    
+    ctx.globalAlpha = 1.0;
   }
 
   function initFractalCanvas() {
@@ -293,56 +259,40 @@
     const ctx = canvas.getContext("2d");
 
     const resize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = window.innerWidth * dpr;
+      canvas.height = window.innerHeight * dpr;
+      canvas.style.width = `${window.innerWidth}px`;
+      canvas.style.height = `${window.innerHeight}px`;
+      ctx.scale(dpr, dpr);
+      drawNeuralNetwork(ctx, window.innerWidth, window.innerHeight);
     };
-    resize();
+    
     window.addEventListener("resize", resize);
+    resize();
+  }
 
-    let frameCount = 0;
+  /**
+   * Mobile nav toggle functionality
+   */
+  function setupMobileToggle(container) {
+    const mobileNavToggle = container.querySelector('.mobile-nav-toggle');
+    const navLinks = container.querySelector('.nav-links');
 
-    function animateColor() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    if (mobileNavToggle) {
+      mobileNavToggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        navLinks.classList.toggle('nav-active');
+        this.textContent = navLinks.classList.contains('nav-active') ? '✕' : '☰';
+      });
+    }
 
-      // Dynamically calculate trunk height = 30%–40% of screen
-      const baseLength = canvas.height * 0.27;
-
-      const isMobile = window.innerWidth <= 991;
-      const baseX = isMobile ? canvas.width / 2 : canvas.width * 0.75;
-      const trunkHeight = isMobile ? canvas.height * 0.25 : baseLength;
-      const treeDepth = 9;
-
-      drawFractalTree(
-        ctx,
-        baseX,
-        canvas.height,
-        trunkHeight,
-        0,
-        treeDepth,
-        17,
-        hue
-      );
-
-      if (frameCount++ % 5 === 0) {
-        hue = (hue + 1) % 360;
+    document.addEventListener('click', function(e) {
+      if (navLinks && navLinks.classList.contains('nav-active') && !navLinks.contains(e.target) && !mobileNavToggle.contains(e.target)) {
+        navLinks.classList.remove('nav-active');
+        mobileNavToggle.textContent = '☰';
       }
-
-      fractalAnimId = requestAnimationFrame(animateColor);
-    }
-
-    animateColor();
+    });
   }
-
-  function stopFractalCanvas() {
-    cancelAnimationFrame(fractalAnimId);
-    const canvas = document.getElementById("fractal-canvas");
-    if (canvas) {
-      const ctx = canvas.getContext("2d");
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-    }
-  }
-
-
-  initFractalCanvas();
 
 })()
