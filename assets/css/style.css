@@ -22,9 +22,9 @@ a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 4px solid #ffcc33; /* Increased from 3px */
+    border-bottom: 4px solid #7a0019; /* Updated to Maroon */
     padding: 15px 20px;
-    background-color: #ffffff;
+    background-color: #ffcc33; /* Updated to UMN Gold */
     position: relative;
     z-index: 1000;
 }
@@ -47,12 +47,14 @@ a:hover {
 
 .nav-links {
     display: flex;
-    gap: 20px; /* Increased from 15px */
-    color: #5b5651; /* Neutral dark muted tone */
+    gap: 20px; /* Restored original gap */
+    color: #7a0019; /* Updated to Maroon */
 }
 .nav-links a {
-    color: #5b5651;
+    color: #7a0019; /* Updated to Maroon */
     font-size: 14px; /* Increased from 13px */
+    padding: 2px 4px; /* Minimal padding for text background effect */
+    transition: background-color 0.2s ease; /* Smooth transition */
 }
 .nav-links a.active {
     color: #7a0019;
@@ -60,35 +62,40 @@ a:hover {
     border-bottom: 4px solid #7a0019; /* Increased from 3px */
 }
 .nav-links a:hover {
-    color: #7a0019;
-}
-
-.ticker {
-    background-color: #ffcc33; /* UMN Gold background */
-    color: #7a0019; /* High-contrast Maroon text */
-    padding: 10px 20px; /* Increased padding */
-    border-bottom: 3px solid #d4a316; /* Increased from 2px */
-    font-size: 13px; /* Increased from 12px */
-    white-space: nowrap;
-    overflow: hidden;
-    box-sizing: border-box;
-}
-
-.ticker span {
-    display: inline-block;
-    padding-left: 100%;
-    animation: ticker 25s linear infinite;
-}
-
-@keyframes ticker {
-    0% { transform: translate(0, 0); }
-    100% { transform: translate(-100%, 0); }
+    background-color: #ffffff; /* White background on hover */
+    color: #7a0019; /* Keep text Maroon */
+    text-decoration: none;
 }
 
 .container {
     max-width: 1050px; /* Slightly wider */
     margin: 0 auto;
-    padding: 40px 20px;
+    padding: 20px; /* Reduced from 40px 20px */
+}
+
+/* New: Centering and ASCII Responsiveness */
+.full-height-center {
+    min-height: calc(100vh - 80px); /* Adjust based on navbar height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ascii-art {
+    font-size: 8px;
+    line-height: 1.0;
+    color: #7a0019;
+    margin: 0;
+    padding: 0;
+    white-space: pre;
+    overflow-x: auto;
+    text-align: center; /* Helpful for some browsers */
+}
+
+@media (max-width: 600px) {
+    .ascii-art {
+        font-size: 4px; /* Scale down for mobile */
+    }
 }
 
 .grid-2 {
@@ -171,7 +178,7 @@ a:hover {
 .panel {
     border: 3px solid #e2dfdc; /* Increased from 2px */
     background-color: #ffffff;
-    padding: 25px; /* Increased padding */
+    padding: 20px; /* Reduced from 25px */
     box-shadow: 0 4px 6px rgba(122, 0, 25, 0.06); /* Slightly more prominent shadow */
 }
 
@@ -199,7 +206,7 @@ a:hover {
     display: flex;
     justify-content: space-between;
     margin-bottom: 12px;
-    border-bottom: 3px dotted #e2dfdc; /* Increased from 2px */
+    border-bottom: 1px dotted #e2dfdc; /* Reduced from 3px */
     padding-bottom: 6px;
 }
 
@@ -236,9 +243,9 @@ a:hover {
         top: 100%;
         left: 0;
         right: 0;
-        background-color: #ffffff;
+        background-color: #ffcc33; /* Updated to UMN Gold */
         padding: 25px;
-        border-bottom: 4px solid #ffcc33;
+        border-bottom: 4px solid #7a0019; /* Updated to Maroon */
         z-index: 999;
         gap: 20px;
         box-shadow: 0 4px 10px rgba(0,0,0,0.15);
@@ -280,12 +287,8 @@ a:hover {
 }
 
 .log-entry {
-    border-bottom: 3px solid #e2dfdc; /* Increased from 2px */
-    padding: 25px 0;
-}
-
-.log-entry:last-child {
-    border-bottom: none;
+    border-bottom: 1px solid #e2dfdc; /* Reduced from 3px */
+    padding: 8px 0;
 }
 
 .log-header {
@@ -304,7 +307,7 @@ a:hover {
     font-size: 14px;
 }
 .log-body {
-    margin-bottom: 15px;
+    margin-bottom: 0; /* Reduced from 15px */
     color: #2d2926;
 }
 
@@ -340,7 +343,7 @@ table {
 th, td {
     padding: 12px;
     text-align: left;
-    border-bottom: 3px solid #e2dfdc; /* Increased from 2px */
+    border-bottom: 1px solid #e2dfdc; /* Reduced from 3px */
 }
 
 th {
