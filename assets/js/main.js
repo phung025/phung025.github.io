@@ -6,6 +6,12 @@
 (function() {
   "use strict";
 
+  // Apply saved theme immediately on load to prevent flash
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'dark') {
+    document.body.classList.add('dark-theme');
+  }
+
   /**
    * SiteHeader Web Component
    * Handles the Canvas and Navbar across all pages
@@ -14,6 +20,7 @@
     connectedCallback() {
       const active = this.getAttribute('active') || '';
       const root = this.getAttribute('root') || '';
+      const isDark = document.body.classList.contains('dark-theme');
 
       this.innerHTML = `
         <canvas id="fractal-canvas" style="position: fixed; top:0; left:0; width:100vw; height:100vh; z-index:-1; opacity:0.15; pointer-events:none;"></canvas>
@@ -32,13 +39,16 @@
             <a href="https://www.linkedin.com/in/namphung/" target="_blank">LINKEDIN</a>
             <span>|</span>
             <a href="https://github.com/phung025/" target="_blank">GITHUB</a>
+            <span>|</span>
+            <button id="theme-toggle" class="theme-toggle-btn">[ THEME: ${isDark ? 'DARK' : 'LIGHT'} ]</button>
           </div>
         </div>
       `;
 
-      // Re-initialize fractal tree and mobile toggle after injection
+      // Re-initialize fractal tree, mobile toggle, and theme toggle after injection
       initFractalCanvas();
       setupMobileToggle(this);
+      setupThemeToggle(this);
     }
   }
 
@@ -77,7 +87,7 @@
             pieceEl.className = 'chess-piece';
             // Fluid font size: 8% of board width, capped at 40px
             pieceEl.style.fontSize = 'min(40px, 8.5vw)';
-            pieceEl.style.color = r % 2 === 0 ? '#7a0019' : '#d4a316';
+            pieceEl.classList.add(r % 2 === 0 ? 'piece-primary' : 'piece-secondary');
             pieceEl.style.display = 'flex';
             pieceEl.style.justifyContent = 'center';
             pieceEl.style.alignItems = 'center';
@@ -190,9 +200,10 @@
     const connectionDist = isMobile ? 100 : 180;
     const nodes = [];
 
-    const umnMaroon = '#7a0019';
-    const umnGold = '#ffcc33';
-    const palette = [umnMaroon, umnGold];
+    const isDark = document.body.classList.contains('dark-theme');
+    const primaryAccent = isDark ? '#80C148' : '#7a0019';
+    const secondaryAccent = isDark ? '#59A9FF' : '#ffcc33';
+    const palette = [primaryAccent, secondaryAccent];
 
     // Generate random nodes
     for (let i = 0; i < nodeCount; i++) {
@@ -222,7 +233,7 @@
           ctx.globalAlpha = alpha * 0.6; // Significantly more vibrant
           ctx.lineWidth = 1.5; // Sharper, thicker lines
 
-          ctx.strokeStyle = Math.random() > 0.5 ? umnMaroon : umnGold;
+          ctx.strokeStyle = Math.random() > 0.5 ? primaryAccent : secondaryAccent;
           ctx.stroke();
         }
       }
@@ -288,6 +299,26 @@
       if (navLinks && navLinks.classList.contains('nav-active') && !navLinks.contains(e.target) && !mobileNavToggle.contains(e.target)) {
         navLinks.classList.remove('nav-active');
         mobileNavToggle.textContent = '☰';
+      }
+    });
+  }
+
+  /**
+   * Theme switcher functionality
+   */
+  function setupThemeToggle(container) {
+    const btn = container.querySelector('#theme-toggle');
+    if (!btn) return;
+    btn.addEventListener('click', function() {
+      const isDark = document.body.classList.toggle('dark-theme');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      btn.textContent = `[ THEME: ${isDark ? 'DARK' : 'LIGHT'} ]`;
+      
+      // Update fractal tree background colors dynamically
+      const canvas = document.getElementById("fractal-canvas");
+      if (canvas) {
+        const ctx = canvas.getContext("2d");
+        drawNeuralNetwork(ctx, window.innerWidth, window.innerHeight);
       }
     });
   }
