@@ -57,52 +57,6 @@
     customElements.define('site-header', SiteHeader);
   }
 
-  /**
-   * ChessGame Web Component - Eight Queens Solution Display
-   */
-  class ChessGame extends HTMLElement {
-    connectedCallback() {
-      this.innerHTML = `
-        <div class="chess-container">
-          <div class="chess-board" id="board"></div>
-        </div>
-      `;
-      this.render();
-    }
-
-    render() {
-      const boardEl = this.querySelector('#board');
-      boardEl.innerHTML = '';
-
-      // One valid 8-Queens solution
-      const solution = [3, 6, 2, 7, 1, 4, 0, 5]; // Column index for each row
-
-      for (let r = 0; r < 8; r++) {
-        for (let c = 0; c < 8; c++) {
-          const square = document.createElement('div');
-          square.className = `chess-square ${(r + c) % 2 === 0 ? 'light' : 'dark'}`;
-
-          if (solution[r] === c) {
-            const pieceEl = document.createElement('div');
-            pieceEl.className = 'chess-piece';
-            // Fluid font size: 8% of board width, capped at 40px
-            pieceEl.style.fontSize = 'min(40px, 8.5vw)';
-            pieceEl.classList.add(r % 2 === 0 ? 'piece-primary' : 'piece-secondary');
-            pieceEl.style.display = 'flex';
-            pieceEl.style.justifyContent = 'center';
-            pieceEl.style.alignItems = 'center';
-            pieceEl.textContent = '♛';
-            square.appendChild(pieceEl);
-          }
-          boardEl.appendChild(square);
-        }
-      }
-    }
-  }
-
-  if (!customElements.get('chess-game')) {
-    customElements.define('chess-game', ChessGame);
-  }
   const select = (el, all = false) => {
     el = el.trim()
     if (all) {
